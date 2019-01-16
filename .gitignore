@@ -1,3 +1,4 @@
+find . -size +100M | sed -e 's/^\.\///' >> .gitignore
 ## Build generated
 build/
 DerivedData/
