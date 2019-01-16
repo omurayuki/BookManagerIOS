@@ -75,14 +75,50 @@ struct _R: Rswift.Validatable {
     }
     
     struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = ViewController
+      typealias InitialController = UIKit.UINavigationController
       
       let bundle = R.hostingBundle
+      let edit = StoryboardViewControllerResource<EditViewController>(identifier: "edit")
+      let editSettingTab = StoryboardViewControllerResource<UIKit.UITabBarController>(identifier: "editSettingTab")
+      let login = StoryboardViewControllerResource<LoginViewController>(identifier: "login")
+      let loginNavi = StoryboardViewControllerResource<UIKit.UINavigationController>(identifier: "loginNavi")
       let name = "Main"
+      let set = StoryboardViewControllerResource<LogoutViewController>(identifier: "set")
+      let signup = StoryboardViewControllerResource<SignupViewController>(identifier: "signup")
+      
+      func edit(_: Void = ()) -> EditViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: edit)
+      }
+      
+      func editSettingTab(_: Void = ()) -> UIKit.UITabBarController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: editSettingTab)
+      }
+      
+      func login(_: Void = ()) -> LoginViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: login)
+      }
+      
+      func loginNavi(_: Void = ()) -> UIKit.UINavigationController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: loginNavi)
+      }
+      
+      func set(_: Void = ()) -> LogoutViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: set)
+      }
+      
+      func signup(_: Void = ()) -> SignupViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: signup)
+      }
       
       static func validate() throws {
         if #available(iOS 11.0, *) {
         }
+        if _R.storyboard.main().edit() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'edit' could not be loaded from storyboard 'Main' as 'EditViewController'.") }
+        if _R.storyboard.main().editSettingTab() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'editSettingTab' could not be loaded from storyboard 'Main' as 'UIKit.UITabBarController'.") }
+        if _R.storyboard.main().login() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'login' could not be loaded from storyboard 'Main' as 'LoginViewController'.") }
+        if _R.storyboard.main().loginNavi() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'loginNavi' could not be loaded from storyboard 'Main' as 'UIKit.UINavigationController'.") }
+        if _R.storyboard.main().set() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'set' could not be loaded from storyboard 'Main' as 'LogoutViewController'.") }
+        if _R.storyboard.main().signup() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'signup' could not be loaded from storyboard 'Main' as 'SignupViewController'.") }
       }
       
       fileprivate init() {}
