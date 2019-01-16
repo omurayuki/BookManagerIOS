@@ -21,11 +21,11 @@
 		C974A77221E5C0BE00CC2549 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C974A77121E5C0BE00CC2549 /* LoginViewController.swift */; };
 		C9764CDF21ED82CD004D1B34 /* PhotoLibraryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9764CDE21ED82CD004D1B34 /* PhotoLibraryManager.swift */; };
 		C9764CE921EDBDAF004D1B34 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9764CE821EDBDAF004D1B34 /* Kingfisher.framework */; };
-		C982E74F21E882EE0075F4EF /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982E74E21E882EE0075F4EF /* R.generated.swift */; };
 		C9A0A62F21E5E97E00B4C694 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0A62E21E5E97E00B4C694 /* SignupViewController.swift */; };
 		C9A0A63221E5EF1D00B4C694 /* CommonFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0A63121E5EF1D00B4C694 /* CommonFunction.swift */; };
 		C9C1BC4D21EED56A00188310 /* EditSetTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C1BC4C21EED56A00188310 /* EditSetTabViewController.swift */; };
 		C9C1BC4F21EEF55600188310 /* BookListNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C1BC4E21EEF55600188310 /* BookListNavigationController.swift */; };
+		C9C1BC5221EF2ABD00188310 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C1BC5121EF2ABD00188310 /* R.generated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,11 +45,11 @@
 		C974A77121E5C0BE00CC2549 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C9764CDE21ED82CD004D1B34 /* PhotoLibraryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibraryManager.swift; sourceTree = "<group>"; };
 		C9764CE821EDBDAF004D1B34 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
-		C982E74E21E882EE0075F4EF /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		C9A0A62E21E5E97E00B4C694 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		C9A0A63121E5EF1D00B4C694 /* CommonFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunction.swift; sourceTree = "<group>"; };
 		C9C1BC4C21EED56A00188310 /* EditSetTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSetTabViewController.swift; sourceTree = "<group>"; };
 		C9C1BC4E21EEF55600188310 /* BookListNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListNavigationController.swift; sourceTree = "<group>"; };
+		C9C1BC5121EF2ABD00188310 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		F1ABCBD788C46B6D806C9393 /* Pods-CRUD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CRUD.release.xcconfig"; path = "Pods/Target Support Files/Pods-CRUD/Pods-CRUD.release.xcconfig"; sourceTree = "<group>"; };
 		F8D96BAFB77FF34C18D2395A /* Pods_CRUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CRUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -102,9 +102,9 @@
 				C916264921E323DA00F85B15 /* LaunchScreen.storyboard */,
 				C916264C21E323DA00F85B15 /* Info.plist */,
 				C916264021E323D900F85B15 /* AppDelegate.swift */,
-				C982E74E21E882EE0075F4EF /* R.generated.swift */,
 				C9A0A63121E5EF1D00B4C694 /* CommonFunction.swift */,
 				C9764CDE21ED82CD004D1B34 /* PhotoLibraryManager.swift */,
+				C9C1BC5121EF2ABD00188310 /* R.generated.swift */,
 				C9A0A63021E5E99B00B4C694 /* ViewController */,
 			);
 			path = CRUD;
@@ -144,13 +144,14 @@
 			buildConfigurationList = C916264F21E323DA00F85B15 /* Build configuration list for PBXNativeTarget "CRUD" */;
 			buildPhases = (
 				F67EF2BEB6220489318FFBC3 /* [CP] Check Pods Manifest.lock */,
+				C9C1BC5021EF292200188310 /* ShellScript */,
 				C982E74D21E880200075F4EF /* ShellScript */,
 				C916263921E323D900F85B15 /* Sources */,
 				C916263A21E323D900F85B15 /* Frameworks */,
 				C916263B21E323D900F85B15 /* Resources */,
 				C9332C9D21E3583800A49395 /* ShellScript */,
-				B0685F4956CCB0B043136158 /* [CP] Embed Pods Frameworks */,
 				C9764CEA21EDBDD3004D1B34 /* KingFisher */,
+				3F818AE6BFB339A1B594FC00 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -208,7 +209,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B0685F4956CCB0B043136158 /* [CP] Embed Pods Frameworks */ = {
+		3F818AE6BFB339A1B594FC00 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -280,11 +281,30 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				$SRCROOT/R.generated.swift,
+				"$SRCROOT/R.generated.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"$SRCROOT/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
+		C9C1BC5021EF292200188310 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$SRCROOT/R.generated.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
 		};
 		F67EF2BEB6220489318FFBC3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -316,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C954C83F21E8587E0040724A /* EditViewController.swift in Sources */,
+				C9C1BC5221EF2ABD00188310 /* R.generated.swift in Sources */,
 				C9764CDF21ED82CD004D1B34 /* PhotoLibraryManager.swift in Sources */,
 				C9A0A62F21E5E97E00B4C694 /* SignupViewController.swift in Sources */,
 				C974A77221E5C0BE00CC2549 /* LoginViewController.swift in Sources */,
@@ -327,7 +348,6 @@
 				C905A88621E6F04800BA7723 /* BookListCell.swift in Sources */,
 				C916264121E323D900F85B15 /* AppDelegate.swift in Sources */,
 				C905A88821E708CC00BA7723 /* LogoutViewController.swift in Sources */,
-				C982E74F21E882EE0075F4EF /* R.generated.swift in Sources */,
 				C905A88221E6DEF700BA7723 /* BookListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
