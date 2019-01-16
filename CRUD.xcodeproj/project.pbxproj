@@ -12,9 +12,11 @@
 		C916264621E323D900F85B15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C916264421E323D900F85B15 /* Main.storyboard */; };
 		C916264821E323DA00F85B15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C916264721E323DA00F85B15 /* Assets.xcassets */; };
 		C916264B21E323DA00F85B15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C916264921E323DA00F85B15 /* LaunchScreen.storyboard */; };
+		FEC439BC480A00B21A6879FC /* Pods_CRUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8D96BAFB77FF34C18D2395A /* Pods_CRUD.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		378459A4D66C6ED0600451CC /* Pods-CRUD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CRUD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CRUD/Pods-CRUD.debug.xcconfig"; sourceTree = "<group>"; };
 		C916263D21E323D900F85B15 /* CRUD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CRUD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C916264021E323D900F85B15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C916264221E323D900F85B15 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +24,8 @@
 		C916264721E323DA00F85B15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C916264A21E323DA00F85B15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C916264C21E323DA00F85B15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1ABCBD788C46B6D806C9393 /* Pods-CRUD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CRUD.release.xcconfig"; path = "Pods/Target Support Files/Pods-CRUD/Pods-CRUD.release.xcconfig"; sourceTree = "<group>"; };
+		F8D96BAFB77FF34C18D2395A /* Pods_CRUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CRUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEC439BC480A00B21A6879FC /* Pods_CRUD.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A63C0D88195CCCC7E70C965 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F8D96BAFB77FF34C18D2395A /* Pods_CRUD.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C916263421E323D900F85B15 = {
 			isa = PBXGroup;
 			children = (
 				C916263F21E323D900F85B15 /* CRUD */,
 				C916263E21E323D900F85B15 /* Products */,
+				E82AC2E782597CDA39D43CEC /* Pods */,
+				5A63C0D88195CCCC7E70C965 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +79,15 @@
 			path = CRUD;
 			sourceTree = "<group>";
 		};
+		E82AC2E782597CDA39D43CEC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				378459A4D66C6ED0600451CC /* Pods-CRUD.debug.xcconfig */,
+				F1ABCBD788C46B6D806C9393 /* Pods-CRUD.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C916264F21E323DA00F85B15 /* Build configuration list for PBXNativeTarget "CRUD" */;
 			buildPhases = (
+				F67EF2BEB6220489318FFBC3 /* [CP] Check Pods Manifest.lock */,
 				C916263921E323D900F85B15 /* Sources */,
 				C916263A21E323D900F85B15 /* Frameworks */,
 				C916263B21E323D900F85B15 /* Resources */,
+				C9332C9D21E3583800A49395 /* ShellScript */,
+				B0685F4956CCB0B043136158 /* [CP] Embed Pods Frameworks */,
+				C9226D0021E36092000C7C74 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -129,6 +157,89 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B0685F4956CCB0B043136158 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CRUD/Pods-CRUD-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CRUD/Pods-CRUD-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C9226D0021E36092000C7C74 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/CRUD/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/$PROJECT_NAME/R.generated.swift\"\n";
+		};
+		C9332C9D21E3583800A49395 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		F67EF2BEB6220489318FFBC3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CRUD-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C916263921E323D900F85B15 /* Sources */ = {
@@ -280,6 +391,7 @@
 		};
 		C916265021E323DA00F85B15 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 378459A4D66C6ED0600451CC /* Pods-CRUD.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +410,7 @@
 		};
 		C916265121E323DA00F85B15 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1ABCBD788C46B6D806C9393 /* Pods-CRUD.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
