@@ -25,7 +25,8 @@
 		C9A0A63221E5EF1D00B4C694 /* CommonFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0A63121E5EF1D00B4C694 /* CommonFunction.swift */; };
 		C9C1BC4D21EED56A00188310 /* EditSetTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C1BC4C21EED56A00188310 /* EditSetTabViewController.swift */; };
 		C9C1BC4F21EEF55600188310 /* BookListNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C1BC4E21EEF55600188310 /* BookListNavigationController.swift */; };
-		C9C1BC5221EF2ABD00188310 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C1BC5121EF2ABD00188310 /* R.generated.swift */; };
+		C9DA6D5921F02689006BCDE3 /* mypage.png in Resources */ = {isa = PBXBuildFile; fileRef = C9DA6D5821F02689006BCDE3 /* mypage.png */; };
+		C9DA6D5B21F02F78006BCDE3 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DA6D5A21F02F78006BCDE3 /* R.generated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,7 +50,8 @@
 		C9A0A63121E5EF1D00B4C694 /* CommonFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunction.swift; sourceTree = "<group>"; };
 		C9C1BC4C21EED56A00188310 /* EditSetTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSetTabViewController.swift; sourceTree = "<group>"; };
 		C9C1BC4E21EEF55600188310 /* BookListNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListNavigationController.swift; sourceTree = "<group>"; };
-		C9C1BC5121EF2ABD00188310 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		C9DA6D5821F02689006BCDE3 /* mypage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mypage.png; sourceTree = "<group>"; };
+		C9DA6D5A21F02F78006BCDE3 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		F1ABCBD788C46B6D806C9393 /* Pods-CRUD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CRUD.release.xcconfig"; path = "Pods/Target Support Files/Pods-CRUD/Pods-CRUD.release.xcconfig"; sourceTree = "<group>"; };
 		F8D96BAFB77FF34C18D2395A /* Pods_CRUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CRUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -104,7 +106,7 @@
 				C916264021E323D900F85B15 /* AppDelegate.swift */,
 				C9A0A63121E5EF1D00B4C694 /* CommonFunction.swift */,
 				C9764CDE21ED82CD004D1B34 /* PhotoLibraryManager.swift */,
-				C9C1BC5121EF2ABD00188310 /* R.generated.swift */,
+				C9DA6D5A21F02F78006BCDE3 /* R.generated.swift */,
 				C9A0A63021E5E99B00B4C694 /* ViewController */,
 			);
 			path = CRUD;
@@ -123,6 +125,7 @@
 				C954C83E21E8587E0040724A /* EditViewController.swift */,
 				C905A88721E708CC00BA7723 /* LogoutViewController.swift */,
 				C905A88521E6F04800BA7723 /* BookListCell.swift */,
+				C9DA6D5821F02689006BCDE3 /* mypage.png */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -143,9 +146,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C916264F21E323DA00F85B15 /* Build configuration list for PBXNativeTarget "CRUD" */;
 			buildPhases = (
-				F67EF2BEB6220489318FFBC3 /* [CP] Check Pods Manifest.lock */,
 				C9C1BC5021EF292200188310 /* ShellScript */,
 				C982E74D21E880200075F4EF /* ShellScript */,
+				F67EF2BEB6220489318FFBC3 /* [CP] Check Pods Manifest.lock */,
 				C916263921E323D900F85B15 /* Sources */,
 				C916263A21E323D900F85B15 /* Frameworks */,
 				C916263B21E323D900F85B15 /* Resources */,
@@ -200,6 +203,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9DA6D5921F02689006BCDE3 /* mypage.png in Resources */,
 				C916264B21E323DA00F85B15 /* LaunchScreen.storyboard in Resources */,
 				C916264821E323DA00F85B15 /* Assets.xcassets in Resources */,
 				C916264621E323D900F85B15 /* Main.storyboard in Resources */,
@@ -281,7 +285,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$SRCROOT/R.generated.swift",
+				$SRCROOT/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -300,7 +304,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$SRCROOT/R.generated.swift",
+				$SRCROOT/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -336,7 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C954C83F21E8587E0040724A /* EditViewController.swift in Sources */,
-				C9C1BC5221EF2ABD00188310 /* R.generated.swift in Sources */,
+				C9DA6D5B21F02F78006BCDE3 /* R.generated.swift in Sources */,
 				C9764CDF21ED82CD004D1B34 /* PhotoLibraryManager.swift in Sources */,
 				C9A0A62F21E5E97E00B4C694 /* SignupViewController.swift in Sources */,
 				C974A77221E5C0BE00CC2549 /* LoginViewController.swift in Sources */,

@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  CRUD
-//
-//  Created by オムラユウキ on 2019/01/07.
-//  Copyright © 2019 Swifter. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain
@@ -39,5 +31,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
 }

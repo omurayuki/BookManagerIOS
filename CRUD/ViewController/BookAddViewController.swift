@@ -24,7 +24,7 @@ class BookAddViewController: UIViewController {
     
     private lazy var bookImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "hoge")
+        imageView.image = R.image.home()
         imageView.layer.borderColor = UIColor.gray.cgColor
         imageView.layer.borderWidth = 1
         imageView.contentMode = .scaleToFill
