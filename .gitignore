@@ -12,10 +12,13 @@ DerivedData/
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
-xcuserdata/
 
-# R.swift
-*.generated.swift
+xcuserdata/
+*.xccheckout
+ResourceApp/rswift
+R.generated.swift
+ResourceApp/rswift.log
+ResourceApp/rswift-tv.log
 
 ## Other
 *.moved-aside
@@ -47,9 +50,14 @@ playground.xcworkspace
 # https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
 #
 # Pods/
-#
-# Add this line if you want to avoid checking in source code from the Xcode workspace
-# *.xcworkspace
+
+fastlane/test_output
+fastlane/README.md
+fastlane/report.xml
+fastlane/settoken.sh
+rswift.xcarchive
+rswift.xcodeproj
+
 
 # Carthage
 #
