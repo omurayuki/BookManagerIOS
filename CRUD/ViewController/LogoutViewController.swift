@@ -8,7 +8,7 @@ class LogoutViewController: UIViewController {
         navBar.frame = CGRect(x: 0, y: view.safeAreaInsets.top, width: view.frame.width, height: navBar.frame.height)
         navBar.barTintColor = UIColor.white
         let navItem = UINavigationItem()
-        navItem.title = "設定"
+        navItem.title = R.string.setting.setting()
         navBar.pushItem(navItem, animated: true)
         return navBar
     }()
@@ -19,7 +19,7 @@ class LogoutViewController: UIViewController {
         button.center = CGPoint(x: self.view.frame.width / 2, y: self.view.frame.height / 2)
         button.backgroundColor = UIColor.blue
         button.layer.cornerRadius = 5
-        button.setTitle("ログアウト", for: .normal)
+        button.setTitle(R.string.setting.logout(), for: .normal)
         button.addTarget(self, action: #selector(goLoginViewController(sender: )), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -51,13 +51,13 @@ extension LogoutViewController {
     }
     
     @objc func goLoginViewController(sender: UIButton) {
-        let alert: UIAlertController = UIAlertController(title: "表示", message: "ログアウトしますか？", preferredStyle: UIAlertController.Style.actionSheet)
-        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {
+        let alert: UIAlertController = UIAlertController(title: R.string.setting.display(), message: R.string.setting.wannaLogout(), preferredStyle: UIAlertController.Style.actionSheet)
+        let defaultAction: UIAlertAction = UIAlertAction(title: R.string.setting.ok(), style: UIAlertAction.Style.default, handler: {
             (_: UIAlertAction!) in
             let loginViewController = R.storyboard.main.loginNavi()!
                 self.present(loginViewController, animated: true)
         })
-        let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler: nil)
+        let cancelAction: UIAlertAction = UIAlertAction(title: R.string.setting.cancel(), style: UIAlertAction.Style.cancel, handler: nil)
             alert.addAction(cancelAction)
             alert.addAction(defaultAction)
             self.present(alert, animated: true)

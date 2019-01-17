@@ -56,6 +56,164 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
+  /// This `R.string` struct is generated, and contains static references to 1 localization tables.
+  struct string {
+    /// This `R.string.setting` struct is generated, and contains static references to 21 localization keys.
+    struct setting {
+      /// Value: Alert Title
+      static let alertTitle = Rswift.StringResource(key: "alertTitle", tableName: "Setting", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: emailの形式で入力してください。
+      static let emailFormatErr = Rswift.StringResource(key: "emailFormatErr", tableName: "Setting", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: ok
+      static let ok = Rswift.StringResource(key: "ok", tableName: "Setting", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: yyyy年MM月dd日
+      static let format = Rswift.StringResource(key: "format", tableName: "Setting", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: キャンセル
+      static let cancel = Rswift.StringResource(key: "cancel", tableName: "Setting", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: テキスト入力
+      static let inputText = Rswift.StringResource(key: "inputText", tableName: "Setting", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: パスワードが一致しません。
+      static let notMatchPass = Rswift.StringResource(key: "notMatchPass", tableName: "Setting", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: ログアウト
+      static let logout = Rswift.StringResource(key: "logout", tableName: "Setting", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: ログアウトしますか？
+      static let wannaLogout = Rswift.StringResource(key: "wannaLogout", tableName: "Setting", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: 一覧
+      static let list = Rswift.StringResource(key: "list", tableName: "Setting", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: 完了
+      static let complete = Rswift.StringResource(key: "complete", tableName: "Setting", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: 書籍一覧
+      static let bookList = Rswift.StringResource(key: "bookList", tableName: "Setting", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: 書籍名
+      static let bookName = Rswift.StringResource(key: "bookName", tableName: "Setting", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: 書籍追加
+      static let bookAdd = Rswift.StringResource(key: "bookAdd", tableName: "Setting", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: 画像添付ボタン
+      static let imageAddButton = Rswift.StringResource(key: "imageAddButton", tableName: "Setting", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: 空欄を埋めてください。
+      static let emptyErr = Rswift.StringResource(key: "emptyErr", tableName: "Setting", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: 表示
+      static let display = Rswift.StringResource(key: "display", tableName: "Setting", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: 設定
+      static let setting = Rswift.StringResource(key: "setting", tableName: "Setting", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: 読込
+      static let load = Rswift.StringResource(key: "load", tableName: "Setting", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: 購入日
+      static let purchaseDay = Rswift.StringResource(key: "purchaseDay", tableName: "Setting", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: 金額
+      static let money = Rswift.StringResource(key: "money", tableName: "Setting", bundle: R.hostingBundle, locales: [], comment: nil)
+      
+      /// Value: Alert Title
+      static func alertTitle(_: Void = ()) -> String {
+        return NSLocalizedString("alertTitle", tableName: "Setting", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: emailの形式で入力してください。
+      static func emailFormatErr(_: Void = ()) -> String {
+        return NSLocalizedString("emailFormatErr", tableName: "Setting", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: ok
+      static func ok(_: Void = ()) -> String {
+        return NSLocalizedString("ok", tableName: "Setting", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: yyyy年MM月dd日
+      static func format(_: Void = ()) -> String {
+        return NSLocalizedString("format", tableName: "Setting", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: キャンセル
+      static func cancel(_: Void = ()) -> String {
+        return NSLocalizedString("cancel", tableName: "Setting", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: テキスト入力
+      static func inputText(_: Void = ()) -> String {
+        return NSLocalizedString("inputText", tableName: "Setting", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: パスワードが一致しません。
+      static func notMatchPass(_: Void = ()) -> String {
+        return NSLocalizedString("notMatchPass", tableName: "Setting", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: ログアウト
+      static func logout(_: Void = ()) -> String {
+        return NSLocalizedString("logout", tableName: "Setting", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: ログアウトしますか？
+      static func wannaLogout(_: Void = ()) -> String {
+        return NSLocalizedString("wannaLogout", tableName: "Setting", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: 一覧
+      static func list(_: Void = ()) -> String {
+        return NSLocalizedString("list", tableName: "Setting", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: 完了
+      static func complete(_: Void = ()) -> String {
+        return NSLocalizedString("complete", tableName: "Setting", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: 書籍一覧
+      static func bookList(_: Void = ()) -> String {
+        return NSLocalizedString("bookList", tableName: "Setting", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: 書籍名
+      static func bookName(_: Void = ()) -> String {
+        return NSLocalizedString("bookName", tableName: "Setting", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: 書籍追加
+      static func bookAdd(_: Void = ()) -> String {
+        return NSLocalizedString("bookAdd", tableName: "Setting", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: 画像添付ボタン
+      static func imageAddButton(_: Void = ()) -> String {
+        return NSLocalizedString("imageAddButton", tableName: "Setting", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: 空欄を埋めてください。
+      static func emptyErr(_: Void = ()) -> String {
+        return NSLocalizedString("emptyErr", tableName: "Setting", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: 表示
+      static func display(_: Void = ()) -> String {
+        return NSLocalizedString("display", tableName: "Setting", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: 設定
+      static func setting(_: Void = ()) -> String {
+        return NSLocalizedString("setting", tableName: "Setting", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: 読込
+      static func load(_: Void = ()) -> String {
+        return NSLocalizedString("load", tableName: "Setting", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: 購入日
+      static func purchaseDay(_: Void = ()) -> String {
+        return NSLocalizedString("purchaseDay", tableName: "Setting", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// Value: 金額
+      static func money(_: Void = ()) -> String {
+        return NSLocalizedString("money", tableName: "Setting", bundle: R.hostingBundle, comment: "")
+      }
+      
+      fileprivate init() {}
+    }
+    
+    fileprivate init() {}
+  }
+  
   fileprivate struct intern: Rswift.Validatable {
     fileprivate static func validate() throws {
       try _R.validate()

@@ -11,13 +11,13 @@ class BookAddViewController: UIViewController {
     private lazy var navBar: UINavigationBar = {
         let navBar = UINavigationBar()
         navBar.frame = CGRect(x: 0, y: view.safeAreaInsets.top, width: self.view.frame.width, height: 44)
-        navBar.barTintColor = UIColor.white
+        navBar.barTintColor = .white
         let navItem = UINavigationItem()
         let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveBook))
         navItem.rightBarButtonItem = saveButton
         let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
         navItem.leftBarButtonItem = cancelButton
-        navItem.title = "書籍追加"
+        navItem.title = R.string.setting.bookAdd()
         navBar.pushItem(navItem, animated: false)
         return navBar
     }()
@@ -34,12 +34,11 @@ class BookAddViewController: UIViewController {
     
     private lazy var imagePutButton: UIButton = {
         let button = UIButton()
-        button.setTitle("画像添付ボタン", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        button.addTarget(self, action: #selector(addImage(sender:)), for: .touchUpInside)
+        button.setTitle(R.string.setting.imageAddButton(), for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 15)
         button.layer.cornerRadius = 5
-        button.backgroundColor = UIColor.blue
-        button.setTitleShadowColor(UIColor.white, for: .normal)
+        button.backgroundColor = .blue
+        button.setTitleShadowColor(.white, for: .normal)
         let tap = UITapGestureRecognizer(target: self, action: #selector(selectPhoto(_:)) as Selector)
         tap.numberOfTapsRequired = 1
         button.addGestureRecognizer(tap)
@@ -49,8 +48,8 @@ class BookAddViewController: UIViewController {
     
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "書籍名"
-        label.font = UIFont.systemFont(ofSize: 12)
+        label.text = R.string.setting.bookName()
+        label.font = .systemFont(ofSize: 12)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -58,22 +57,22 @@ class BookAddViewController: UIViewController {
     private lazy var nameTextField: UITextField = {
         let textField = UITextField()
         textField.delegate = self
-        textField.placeholder = "テキスト入力"
+        textField.placeholder = R.string.setting.inputText()
         textField.frame = CGRect(x: 0, y: 0, width: 0, height: 40)
         textField.keyboardType = .default
-        textField.font = UIFont.systemFont(ofSize: 14)
+        textField.font = .systemFont(ofSize: 14)
         textField.borderStyle = .roundedRect
         textField.returnKeyType = .done
         textField.clearButtonMode = .always
-        textField.textAlignment = NSTextAlignment.center
+        textField.textAlignment = .center
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
     
     private lazy var priceLabel: UILabel = {
         let label = UILabel()
-        label.text = "金額"
-        label.font = UIFont.systemFont(ofSize: 12)
+        label.text = R.string.setting.money()
+        label.font = .systemFont(ofSize: 12)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -81,22 +80,22 @@ class BookAddViewController: UIViewController {
     private lazy var priceTextField: UITextField = {
         let textField = UITextField()
         textField.delegate = self
-        textField.placeholder = "テキスト入力"
+        textField.placeholder = R.string.setting.inputText()
         textField.frame = CGRect(x: 0, y: 0, width: 0, height: 40)
         textField.keyboardType = .default
-        textField.font = UIFont.systemFont(ofSize: 14)
+        textField.font = .systemFont(ofSize: 14)
         textField.borderStyle = .roundedRect
         textField.returnKeyType = .done
         textField.clearButtonMode = .always
-        textField.textAlignment = NSTextAlignment.center
+        textField.textAlignment = .center
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
     
     private lazy var purchaseDayLabel: UILabel = {
         let label = UILabel()
-        label.text = "購入日"
-        label.font = UIFont.systemFont(ofSize: 12)
+        label.text = R.string.setting.purchaseDay()
+        label.font = .systemFont(ofSize: 12)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -104,11 +103,11 @@ class BookAddViewController: UIViewController {
     private lazy var purchaseDayTextField: UITextField = {
         let textField = UITextField()
         textField.delegate = self
-        textField.placeholder = "テキスト入力"
+        textField.placeholder = R.string.setting.inputText()
         textField.frame = CGRect(x: 0, y: 0, width: 0, height: 40)
         textField.keyboardType = .default
         textField.borderStyle = .roundedRect
-        textField.textAlignment = NSTextAlignment.center
+        textField.textAlignment = .center
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -189,10 +188,7 @@ extension BookAddViewController {
     
     @objc func saveBook() {
         print("saveBook")
-    }
-    
-    @objc func addImage(sender: UIButton) {
-        print("addImage")
+        //書籍登録ボタン
     }
     
     @objc func toolBarBtnPush(_ sender: UIBarButtonItem) {
@@ -202,20 +198,20 @@ extension BookAddViewController {
     }
     
     private func pickerDate() {
-        dateFormat.dateFormat = "yyyy年MM月dd日"
+        dateFormat.dateFormat = R.string.setting.format()
         purchaseDayTextField.text = dateFormat.string(from: todayDate as Date)
         inputDatePicker.datePickerMode = .date
         purchaseDayTextField.inputView = inputDatePicker
         let pickerToolBar = UIToolbar(frame: CGRect(x: 0, y: self.view.frame.size.height/6, width: self.view.frame.size.width, height: 40.0))
         pickerToolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
         pickerToolBar.barStyle = .default
-        pickerToolBar.tintColor = UIColor.gray
-        pickerToolBar.backgroundColor = UIColor.white
+        pickerToolBar.tintColor = .gray
+        pickerToolBar.backgroundColor = .white
         let spaceBarBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
-        let toolBarBtn = UIBarButtonItem(title: "完了", style: .done, target: self, action: #selector(toolBarBtnPush(_:)))
+        let toolBarBtn = UIBarButtonItem(title: R.string.setting.complete(), style: .done, target: self, action: #selector(toolBarBtnPush(_:)))
         pickerToolBar.items = [spaceBarBtn, toolBarBtn]
         purchaseDayTextField.inputAccessoryView = pickerToolBar
-        purchaseDayTextField.textColor = UIColor.gray
+        purchaseDayTextField.textColor = .gray
     }
     
     @objc func selectPhoto(_ tap: UITapGestureRecognizer) {

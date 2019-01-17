@@ -13,6 +13,8 @@ DerivedData/
 *.perspectivev3
 !default.perspectivev3
 xcuserdata/
+
+# R.swift
 *.generated.swift
 
 ## Other

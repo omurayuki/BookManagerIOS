@@ -29,6 +29,7 @@ class EditViewController: UIViewController {
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         print("saved!!")
+        //書籍編集情報保存
     }
 }
 
@@ -39,7 +40,7 @@ extension EditViewController {
     }
     
     private func pickerDate() {
-        dateFormat.dateFormat = "yyyy年MM月dd日"
+        dateFormat.dateFormat = R.string.setting.format()
         purchaseDayTextField.text = dateFormat.string(from: todayDate as Date)
         inputDatePicker.datePickerMode = .date
         purchaseDayTextField.inputView = inputDatePicker
@@ -49,7 +50,7 @@ extension EditViewController {
         pickerToolBar.tintColor = UIColor.gray
         pickerToolBar.backgroundColor = UIColor.white
         let spaceBarBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
-        let toolBarBtn = UIBarButtonItem(title: "完了", style: .done, target: self, action: #selector(toolBarBtnPush(_:)))
+        let toolBarBtn = UIBarButtonItem(title: R.string.setting.complete(), style: .done, target: self, action: #selector(toolBarBtnPush(_:)))
         pickerToolBar.items = [spaceBarBtn, toolBarBtn]
         purchaseDayTextField.inputAccessoryView = pickerToolBar
         purchaseDayTextField.textColor = UIColor.gray

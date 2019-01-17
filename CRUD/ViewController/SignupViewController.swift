@@ -17,9 +17,9 @@ class SignupViewController: UIViewController {
     
     @IBAction func saveBtnTapped(_ sender: Any) {
         if
-            emailTextField.text != "",
-            passTextField.text != "",
-            onemorePassTextField.text != ""
+            (emailTextField.text?.isEmpty)!,
+            (passTextField.text?.isEmpty)!,
+            (onemorePassTextField.text?.isEmpty)!
         {
             let emailText = emailTextField.text!
             let passText = passTextField.text!
@@ -29,31 +29,16 @@ class SignupViewController: UIViewController {
             if passText == onemorrPassText {
                 let mainTab = MainTabBarController()
                 self.present(mainTab, animated: true)
-                
                 } else {
-                    showMessage(messageToDisplay: "パスワードが一致しません。")
+                    CommonFunction.showMessage(messageToDisplay: R.string.setting.notMatchPass(), viewController: self)
                 }
             } else {
-                showMessage(messageToDisplay: "emailの形式で入力してください。")
+                CommonFunction.showMessage(messageToDisplay: R.string.setting.emailFormatErr(), viewController: self)
             }
-            
         } else {
-            showMessage(messageToDisplay: "空欄を埋めてください。")
+            CommonFunction.showMessage(messageToDisplay: R.string.setting.emptyErr(), viewController: self)
         }
         
-    }
-}
-
-extension SignupViewController {
-    
-    public func showMessage(messageToDisplay: String) {
-        let alertController = UIAlertController(title: "Alert Title", message: messageToDisplay, preferredStyle: .alert)
-        
-        let OKAction = UIAlertAction(title: "ok", style: .default)
-        
-        alertController.addAction(OKAction)
-        
-        self.present(alertController, animated: true)
     }
 }
 

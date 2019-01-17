@@ -25,8 +25,8 @@
 		C9A0A63221E5EF1D00B4C694 /* CommonFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0A63121E5EF1D00B4C694 /* CommonFunction.swift */; };
 		C9C1BC4D21EED56A00188310 /* EditSetTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C1BC4C21EED56A00188310 /* EditSetTabViewController.swift */; };
 		C9C1BC4F21EEF55600188310 /* BookListNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C1BC4E21EEF55600188310 /* BookListNavigationController.swift */; };
-		C9DA6D5921F02689006BCDE3 /* mypage.png in Resources */ = {isa = PBXBuildFile; fileRef = C9DA6D5821F02689006BCDE3 /* mypage.png */; };
 		C9DA6D5B21F02F78006BCDE3 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DA6D5A21F02F78006BCDE3 /* R.generated.swift */; };
+		C9F4ECBB21F037EF00A37467 /* Setting.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9F4ECBA21F037EF00A37467 /* Setting.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,8 +50,8 @@
 		C9A0A63121E5EF1D00B4C694 /* CommonFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunction.swift; sourceTree = "<group>"; };
 		C9C1BC4C21EED56A00188310 /* EditSetTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSetTabViewController.swift; sourceTree = "<group>"; };
 		C9C1BC4E21EEF55600188310 /* BookListNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListNavigationController.swift; sourceTree = "<group>"; };
-		C9DA6D5821F02689006BCDE3 /* mypage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mypage.png; sourceTree = "<group>"; };
 		C9DA6D5A21F02F78006BCDE3 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		C9F4ECBA21F037EF00A37467 /* Setting.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Setting.strings; sourceTree = "<group>"; };
 		F1ABCBD788C46B6D806C9393 /* Pods-CRUD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CRUD.release.xcconfig"; path = "Pods/Target Support Files/Pods-CRUD/Pods-CRUD.release.xcconfig"; sourceTree = "<group>"; };
 		F8D96BAFB77FF34C18D2395A /* Pods_CRUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CRUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -107,6 +107,7 @@
 				C9A0A63121E5EF1D00B4C694 /* CommonFunction.swift */,
 				C9764CDE21ED82CD004D1B34 /* PhotoLibraryManager.swift */,
 				C9DA6D5A21F02F78006BCDE3 /* R.generated.swift */,
+				C9F4ECBA21F037EF00A37467 /* Setting.strings */,
 				C9A0A63021E5E99B00B4C694 /* ViewController */,
 			);
 			path = CRUD;
@@ -125,7 +126,6 @@
 				C954C83E21E8587E0040724A /* EditViewController.swift */,
 				C905A88721E708CC00BA7723 /* LogoutViewController.swift */,
 				C905A88521E6F04800BA7723 /* BookListCell.swift */,
-				C9DA6D5821F02689006BCDE3 /* mypage.png */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -146,8 +146,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C916264F21E323DA00F85B15 /* Build configuration list for PBXNativeTarget "CRUD" */;
 			buildPhases = (
-				C9C1BC5021EF292200188310 /* ShellScript */,
-				C982E74D21E880200075F4EF /* ShellScript */,
+				C9C1BC5021EF292200188310 /* Rswift */,
 				F67EF2BEB6220489318FFBC3 /* [CP] Check Pods Manifest.lock */,
 				C916263921E323D900F85B15 /* Sources */,
 				C916263A21E323D900F85B15 /* Frameworks */,
@@ -203,8 +202,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9DA6D5921F02689006BCDE3 /* mypage.png in Resources */,
 				C916264B21E323DA00F85B15 /* LaunchScreen.storyboard in Resources */,
+				C9F4ECBB21F037EF00A37467 /* Setting.strings in Resources */,
 				C916264821E323DA00F85B15 /* Assets.xcassets in Resources */,
 				C916264621E323D900F85B15 /* Main.storyboard in Resources */,
 			);
@@ -272,7 +271,7 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
-		C982E74D21E880200075F4EF /* ShellScript */ = {
+		C9C1BC5021EF292200188310 /* Rswift */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -282,25 +281,7 @@
 			inputPaths = (
 				"$TEMP_DIR/rswift-lastrun",
 			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				$SRCROOT/R.generated.swift,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"$SRCROOT/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
-		};
-		C9C1BC5021EF292200188310 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$TEMP_DIR/rswift-lastrun",
-			);
+			name = Rswift;
 			outputFileListPaths = (
 			);
 			outputPaths = (

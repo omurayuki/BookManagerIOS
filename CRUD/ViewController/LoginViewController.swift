@@ -23,23 +23,11 @@ class LoginViewController: UIViewController {
                     self.passTextField.text = ""
                 }
             } else {
-                showMessage(messageToDisplay: "emailの形式で入力してください。")
+                CommonFunction.showMessage(messageToDisplay: R.string.setting.emailFormatErr(), viewController: self)
             }
         } else {
-            showMessage(messageToDisplay: "空欄を埋めてください。")
+            CommonFunction.showMessage(messageToDisplay: R.string.setting.emptyErr(), viewController: self)
         }
-    }
-}
-
-extension LoginViewController {
-    public func showMessage(messageToDisplay: String) {
-        let alertController = UIAlertController(title: "Alert Title", message: messageToDisplay, preferredStyle: .alert)
-        
-        let OKAction = UIAlertAction(title: "ok", style: .default)
-        
-        alertController.addAction(OKAction)
-        
-        self.present(alertController, animated: true)
     }
 }
 

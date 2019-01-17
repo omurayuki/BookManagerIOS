@@ -17,7 +17,7 @@ class BookListViewController: UIViewController {
         let navItem = UINavigationItem()
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(bookAdd))
         navItem.rightBarButtonItem = addButton
-        navItem.title = "書籍一覧"
+        navItem.title = R.string.setting.bookList()
         navBar.pushItem(navItem, animated: false)
         return navBar
     }()
@@ -41,7 +41,7 @@ class BookListViewController: UIViewController {
     
     private lazy var loadButton: UIButton = {
         let button = UIButton()
-        button.setTitle("読込", for: .normal)
+        button.setTitle(R.string.setting.load(), for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 13)
         button.backgroundColor = UIColor.blue
@@ -82,6 +82,7 @@ extension BookListViewController {
     
     @objc func moreLoad(sender: UIButton) {
         print("moreLoad!!")
+        //登録書籍情報をさらに読み込む
     }
 }
 
@@ -92,7 +93,7 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell: BookListCell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(BookListCell.self), for: indexPath) as? BookListCell {
-            cell.bookimage.image = UIImage(named: "hoge")
+            cell.bookimage.image = R.image.home()
             cell.title.text = "書籍一覧"
             cell.price.text = "200.000円"
             cell.bookDay.text = "2018/12/31"

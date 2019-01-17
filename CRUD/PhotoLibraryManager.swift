@@ -21,7 +21,7 @@ struct PhotoLibraryManager {
             alert.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: { (_) in
                 return
             }))
-            self.parentViewController?.present(alert, animated: true, completion: nil)
+            self.parentViewController?.present(alert, animated: true)
         }
     }
     
@@ -39,7 +39,7 @@ struct PhotoLibraryManager {
                 popover.sourceRect = (self.parentViewController?.view.frame)!
                 popover.permittedArrowDirections = UIPopoverArrowDirection.any
             }
-            self.parentViewController?.present(picker, animated: true, completion: nil)
+            self.parentViewController?.present(picker, animated: true)
         }
     }
 }

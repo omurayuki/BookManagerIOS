@@ -10,4 +10,14 @@ class CommonFunction: UIViewController {
         let isEmail = NSPredicate(format: "SELF MATCHES %@", rep).evaluate(with: email)
         return isEmail
     }
+    
+    static public func showMessage(messageToDisplay: String, viewController: UIViewController) {
+        let alertController = UIAlertController(title: R.string.setting.alertTitle(), message: messageToDisplay, preferredStyle: .alert)
+
+        let OKAction = UIAlertAction(title: R.string.setting.ok(), style: .default)
+
+        alertController.addAction(OKAction)
+
+        viewController.present(alertController, animated: true)
+    }
 }
