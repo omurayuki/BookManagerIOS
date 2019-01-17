@@ -17,13 +17,13 @@ class SignupViewController: UIViewController {
     
     @IBAction func saveBtnTapped(_ sender: Any) {
         if
-            (emailTextField.text?.isEmpty)!,
-            (passTextField.text?.isEmpty)!,
-            (onemorePassTextField.text?.isEmpty)!
+            !(emailTextField.text?.isEmpty)!,
+            !(passTextField.text?.isEmpty)!,
+            !(onemorePassTextField.text?.isEmpty)!
         {
-            let emailText = emailTextField.text!
-            let passText = passTextField.text!
-            let onemorrPassText = onemorePassTextField.text!
+            guard let emailText = emailTextField.text else { return }
+            guard let passText = passTextField.text else { return }
+            guard let onemorrPassText = onemorePassTextField.text else { return }
             
             if CommonFunction.isValidEmail(emailText) {
             if passText == onemorrPassText {

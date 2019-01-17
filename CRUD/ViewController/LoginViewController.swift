@@ -12,19 +12,20 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginBtnTaped(_ sender: Any) {
         //空欄チェック
-        if emailTextField.text != "" && passTextField.text != "" {
-            let emailText = emailTextField.text
+        if !(emailTextField.text?.isEmpty)! && !(passTextField.text?.isEmpty)! {
+            if let emailText = emailTextField.text, let pass = passTextField.text {
+                if CommonFunction.isValidEmail(emailText) {
+                    let mainTab = MainTabBarController()
+                    self.present(mainTab, animated: true) {
+                        self.emailTextField.text = ""
+                        self.passTextField.text = ""
+                    }
+                } else {
+                    CommonFunction.showMessage(messageToDisplay: R.string.setting.emailFormatErr(), viewController: self)
+                }
+            }
             let pass = passTextField.text
             //バリデーションチェック passはキーボードを英数字ものにする
-            if CommonFunction.isValidEmail(emailText!) {
-                let mainTab = MainTabBarController()
-                self.present(mainTab, animated: true) {
-                    self.emailTextField.text = ""
-                    self.passTextField.text = ""
-                }
-            } else {
-                CommonFunction.showMessage(messageToDisplay: R.string.setting.emailFormatErr(), viewController: self)
-            }
         } else {
             CommonFunction.showMessage(messageToDisplay: R.string.setting.emptyErr(), viewController: self)
         }

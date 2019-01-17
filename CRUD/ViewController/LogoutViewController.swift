@@ -5,20 +5,22 @@ class LogoutViewController: UIViewController {
     
     private lazy var navBar: UINavigationBar = {
         let navBar = UINavigationBar()
-        navBar.frame = CGRect(x: 0, y: view.safeAreaInsets.top, width: view.frame.width, height: navBar.frame.height)
-        navBar.barTintColor = UIColor.white
+        navBar.barTintColor = .white
+        navBar.pushItem(navItem, animated: true)
+        navBar.translatesAutoresizingMaskIntoConstraints = false
+        return navBar
+    }()
+    
+    private lazy var navItem: UINavigationItem = {
         let navItem = UINavigationItem()
         navItem.title = R.string.setting.setting()
-        navBar.pushItem(navItem, animated: true)
-        return navBar
+        return navItem
     }()
     
     private lazy var logoutBtn: UIButton = {
         let button = UIButton()
-        button.frame = CGRect(x: 0, y: 0, width: 250, height: 50)
-        button.center = CGPoint(x: self.view.frame.width / 2, y: self.view.frame.height / 2)
-        button.backgroundColor = UIColor.blue
-        button.layer.cornerRadius = 5
+        button.backgroundColor = .blue
+        button.layer.cornerRadius = CGFloat(numberManager.buttonCornerRadius)
         button.setTitle(R.string.setting.logout(), for: .normal)
         button.addTarget(self, action: #selector(goLoginViewController(sender: )), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -27,12 +29,12 @@ class LogoutViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.white
+        view.backgroundColor = .white
         setupLogoutButton()
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         setupNavBar()
     }
 }
@@ -40,17 +42,19 @@ class LogoutViewController: UIViewController {
 extension LogoutViewController {
     private func setupNavBar() {
         view.addSubview(navBar)
+        navBar.topAnchor.constraint(equalTo: view.topAnchor, constant: view.safeAreaInsets.top).isActive = true
+        navBar.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
+        navBar.heightAnchor.constraint(equalToConstant: navBar.frame.height).isActive = true
     }
     
     private func setupLogoutButton() {
         view.addSubview(logoutBtn)
-        
         logoutBtn.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         logoutBtn.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        logoutBtn.widthAnchor.constraint(equalToConstant: 200.0).isActive = true
+        logoutBtn.widthAnchor.constraint(equalToConstant: CGFloat(numberManager.logoutButtonWidthConstraint)).isActive = true
     }
     
-    @objc func goLoginViewController(sender: UIButton) {
+    @objc private func goLoginViewController(sender: UIButton) {
         let alert: UIAlertController = UIAlertController(title: R.string.setting.display(), message: R.string.setting.wannaLogout(), preferredStyle: UIAlertController.Style.actionSheet)
         let defaultAction: UIAlertAction = UIAlertAction(title: R.string.setting.ok(), style: UIAlertAction.Style.default, handler: {
             (_: UIAlertAction!) in

@@ -27,6 +27,7 @@
 		C9C1BC4F21EEF55600188310 /* BookListNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C1BC4E21EEF55600188310 /* BookListNavigationController.swift */; };
 		C9DA6D5B21F02F78006BCDE3 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DA6D5A21F02F78006BCDE3 /* R.generated.swift */; };
 		C9F4ECBB21F037EF00A37467 /* Setting.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9F4ECBA21F037EF00A37467 /* Setting.strings */; };
+		C9F4ECBD21F0638100A37467 /* NumberManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F4ECBC21F0638100A37467 /* NumberManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		C9C1BC4E21EEF55600188310 /* BookListNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListNavigationController.swift; sourceTree = "<group>"; };
 		C9DA6D5A21F02F78006BCDE3 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		C9F4ECBA21F037EF00A37467 /* Setting.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Setting.strings; sourceTree = "<group>"; };
+		C9F4ECBC21F0638100A37467 /* NumberManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberManager.swift; sourceTree = "<group>"; };
 		F1ABCBD788C46B6D806C9393 /* Pods-CRUD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CRUD.release.xcconfig"; path = "Pods/Target Support Files/Pods-CRUD/Pods-CRUD.release.xcconfig"; sourceTree = "<group>"; };
 		F8D96BAFB77FF34C18D2395A /* Pods_CRUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CRUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -106,6 +108,7 @@
 				C916264021E323D900F85B15 /* AppDelegate.swift */,
 				C9A0A63121E5EF1D00B4C694 /* CommonFunction.swift */,
 				C9764CDE21ED82CD004D1B34 /* PhotoLibraryManager.swift */,
+				C9F4ECBC21F0638100A37467 /* NumberManager.swift */,
 				C9DA6D5A21F02F78006BCDE3 /* R.generated.swift */,
 				C9F4ECBA21F037EF00A37467 /* Setting.strings */,
 				C9A0A63021E5E99B00B4C694 /* ViewController */,
@@ -333,6 +336,7 @@
 				C905A88621E6F04800BA7723 /* BookListCell.swift in Sources */,
 				C916264121E323D900F85B15 /* AppDelegate.swift in Sources */,
 				C905A88821E708CC00BA7723 /* LogoutViewController.swift in Sources */,
+				C9F4ECBD21F0638100A37467 /* NumberManager.swift in Sources */,
 				C905A88221E6DEF700BA7723 /* BookListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

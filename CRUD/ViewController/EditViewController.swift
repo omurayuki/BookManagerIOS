@@ -1,8 +1,11 @@
 import UIKit
 
 class EditViewController: UIViewController {
-    
-    @IBOutlet weak var bookImage: UIImageView!
+    @IBOutlet weak var bookImage: UIImageView! {
+        didSet {
+            bookImage.image = R.image.home()
+        }
+    }
     @IBOutlet weak var bookRegistButton: UIButton!
     @IBOutlet weak var bookNameTextField: UITextField!
     @IBOutlet weak var bookMoneyTextField: UITextField!
@@ -11,6 +14,7 @@ class EditViewController: UIViewController {
     private let dateFormat = DateFormatter()
     private let inputDatePicker = UIDatePicker()
     private var photoLibraryManager: PhotoLibraryManager!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         textfieldDelegate()
@@ -56,7 +60,7 @@ extension EditViewController {
         purchaseDayTextField.textColor = UIColor.gray
     }
     
-    @objc func toolBarBtnPush(_ sender: UIBarButtonItem) {
+    @objc private func toolBarBtnPush(_ sender: UIBarButtonItem) {
         let pickerDate = inputDatePicker.date
         purchaseDayTextField.text = dateFormat.string(from: pickerDate as Date)
         self.view.endEditing(true)

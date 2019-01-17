@@ -12,29 +12,37 @@ class BookListViewController: UIViewController {
     
     private lazy var navBar: UINavigationBar = {
         let navBar = UINavigationBar()
-            navBar.frame = CGRect(x: 0, y: view.safeAreaInsets.top, width: view.frame.width, height: 44)
-        navBar.barTintColor = UIColor.white
-        let navItem = UINavigationItem()
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(bookAdd))
-        navItem.rightBarButtonItem = addButton
-        navItem.title = R.string.setting.bookList()
+        navBar.barTintColor = .white
         navBar.pushItem(navItem, animated: false)
+        navBar.translatesAutoresizingMaskIntoConstraints = false
         return navBar
+    }()
+    
+    private lazy var navItem: UINavigationItem = {
+        let navItem = UINavigationItem()
+        navItem.title = R.string.setting.bookList()
+        navItem.rightBarButtonItem = addButton
+        return navItem
+    }()
+    
+    private lazy var addButton: UIBarButtonItem = {
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(bookAdd))
+        return addButton
     }()
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.frame = CGRect(x: 0, y: navBar.frame.size.height + view.safeAreaInsets.top, width: view.frame.size.width, height: view.frame.size.height - view.safeAreaInsets.bottom)
-        tableView.rowHeight = 100
+        tableView.rowHeight = CGFloat(numberManager.tableViewRowHeight)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(BookListCell.self, forCellReuseIdentifier: NSStringFromClass(BookListCell.self))
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
     
     private lazy var safeView: UIView = {
         let safeView = UIView()
-        safeView.backgroundColor = UIColor.white
+        safeView.backgroundColor = .white
         safeView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.safeAreaInsets.top)
         return safeView
     }()
@@ -42,10 +50,10 @@ class BookListViewController: UIViewController {
     private lazy var loadButton: UIButton = {
         let button = UIButton()
         button.setTitle(R.string.setting.load(), for: .normal)
-        button.setTitleColor(UIColor.white, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 13)
-        button.backgroundColor = UIColor.blue
-        button.layer.cornerRadius = 25
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: CGFloat(numberManager.systemFontSize(size: 13)))
+        button.backgroundColor = .blue
+        button.layer.cornerRadius = CGFloat(numberManager.buttonCornerRadiusToCircle)
         button.addTarget(self, action: #selector(moreLoad(sender:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -53,34 +61,41 @@ class BookListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.white
+        view.backgroundColor = .white
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         setupUI()
     }
 }
 
 extension BookListViewController {
     private func setupUI() {
-        view.addSubview(navBar)
         view.addSubview(safeView)
-        view.addSubview(tableView)
-        view.addSubview(loadButton)
+        view.addSubview(navBar)
+        navBar.topAnchor.constraint(equalTo: view.topAnchor, constant: view.safeAreaInsets.top).isActive = true
+        navBar.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
+        navBar.heightAnchor.constraint(equalToConstant: CGFloat(numberManager.navBarHeight)).isActive = true
         
-        loadButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20.0).isActive = true
-        loadButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100.0).isActive = true
-        loadButton.widthAnchor.constraint(equalToConstant: 50.0).isActive = true
-        loadButton.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
+        view.addSubview(tableView)
+        tableView.topAnchor.constraint(equalTo: navBar.bottomAnchor, constant: CGFloat(numberManager.tableViewTopConstraint)).isActive = true
+        tableView.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
+        tableView.heightAnchor.constraint(equalToConstant: view.frame.height - view.safeAreaInsets.bottom).isActive = true
+        
+        view.addSubview(loadButton)
+        loadButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: CGFloat(numberManager.loadButtonRightConstraint)).isActive = true
+        loadButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: CGFloat(numberManager.loadButtonBottomConstraint)).isActive = true
+        loadButton.widthAnchor.constraint(equalToConstant: CGFloat(numberManager.loadButtonWidthConstraint)).isActive = true
+        loadButton.heightAnchor.constraint(equalToConstant: CGFloat(numberManager.loadButtonHeightConstraint)).isActive = true
     }
     
-    @objc func bookAdd() {
+    @objc private func bookAdd() {
         let bookAddViewController = BookAddViewController()
         self.present(bookAddViewController, animated: true)
     }
     
-    @objc func moreLoad(sender: UIButton) {
+    @objc private func moreLoad(sender: UIButton) {
         print("moreLoad!!")
         //登録書籍情報をさらに読み込む
     }
@@ -97,7 +112,7 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
             cell.title.text = "書籍一覧"
             cell.price.text = "200.000円"
             cell.bookDay.text = "2018/12/31"
-            cell.editButton.setTitle(">", for: .normal)
+            cell.editButton.setTitle(R.string.setting.editButton(), for: .normal)
             return cell
         }
         let cell = UITableViewCell()

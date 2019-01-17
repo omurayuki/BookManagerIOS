@@ -10,23 +10,35 @@ class BookAddViewController: UIViewController {
     
     private lazy var navBar: UINavigationBar = {
         let navBar = UINavigationBar()
-        navBar.frame = CGRect(x: 0, y: view.safeAreaInsets.top, width: self.view.frame.width, height: 44)
         navBar.barTintColor = .white
-        let navItem = UINavigationItem()
-        let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveBook))
-        navItem.rightBarButtonItem = saveButton
-        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
-        navItem.leftBarButtonItem = cancelButton
-        navItem.title = R.string.setting.bookAdd()
         navBar.pushItem(navItem, animated: false)
+        navBar.translatesAutoresizingMaskIntoConstraints = false
         return navBar
+    }()
+    
+    private lazy var navItem: UINavigationItem = {
+        let navItem = UINavigationItem()
+        navItem.title = R.string.setting.bookAdd()
+        navItem.rightBarButtonItem = saveButton
+        navItem.leftBarButtonItem = cancelButton
+        return navItem
+    }()
+    
+    private lazy var saveButton: UIBarButtonItem = {
+        let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveBook))
+        return saveButton
+    }()
+    
+    private lazy var cancelButton: UIBarButtonItem = {
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
+        return cancelButton
     }()
     
     private lazy var bookImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = R.image.home()
         imageView.layer.borderColor = UIColor.gray.cgColor
-        imageView.layer.borderWidth = 1
+        imageView.layer.borderWidth = CGFloat(numberManager.imageViewBorderWidth)
         imageView.contentMode = .scaleToFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -35,12 +47,12 @@ class BookAddViewController: UIViewController {
     private lazy var imagePutButton: UIButton = {
         let button = UIButton()
         button.setTitle(R.string.setting.imageAddButton(), for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 15)
+        button.titleLabel?.font = .systemFont(ofSize: CGFloat(numberManager.systemFontSize(size: 15)))
         button.layer.cornerRadius = 5
         button.backgroundColor = .blue
         button.setTitleShadowColor(.white, for: .normal)
         let tap = UITapGestureRecognizer(target: self, action: #selector(selectPhoto(_:)) as Selector)
-        tap.numberOfTapsRequired = 1
+        tap.numberOfTapsRequired = numberManager.taps
         button.addGestureRecognizer(tap)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -49,7 +61,7 @@ class BookAddViewController: UIViewController {
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.text = R.string.setting.bookName()
-        label.font = .systemFont(ofSize: 12)
+        label.font = .systemFont(ofSize: CGFloat(numberManager.systemFontSize(size: 12)))
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -58,9 +70,8 @@ class BookAddViewController: UIViewController {
         let textField = UITextField()
         textField.delegate = self
         textField.placeholder = R.string.setting.inputText()
-        textField.frame = CGRect(x: 0, y: 0, width: 0, height: 40)
         textField.keyboardType = .default
-        textField.font = .systemFont(ofSize: 14)
+        textField.font = .systemFont(ofSize: CGFloat(numberManager.systemFontSize(size: 14)))
         textField.borderStyle = .roundedRect
         textField.returnKeyType = .done
         textField.clearButtonMode = .always
@@ -72,7 +83,7 @@ class BookAddViewController: UIViewController {
     private lazy var priceLabel: UILabel = {
         let label = UILabel()
         label.text = R.string.setting.money()
-        label.font = .systemFont(ofSize: 12)
+        label.font = .systemFont(ofSize: CGFloat(numberManager.systemFontSize(size: 12)))
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -81,9 +92,8 @@ class BookAddViewController: UIViewController {
         let textField = UITextField()
         textField.delegate = self
         textField.placeholder = R.string.setting.inputText()
-        textField.frame = CGRect(x: 0, y: 0, width: 0, height: 40)
         textField.keyboardType = .default
-        textField.font = .systemFont(ofSize: 14)
+        textField.font = .systemFont(ofSize: CGFloat(numberManager.systemFontSize(size: 14)))
         textField.borderStyle = .roundedRect
         textField.returnKeyType = .done
         textField.clearButtonMode = .always
@@ -95,7 +105,7 @@ class BookAddViewController: UIViewController {
     private lazy var purchaseDayLabel: UILabel = {
         let label = UILabel()
         label.text = R.string.setting.purchaseDay()
-        label.font = .systemFont(ofSize: 12)
+        label.font = .systemFont(ofSize: CGFloat(numberManager.systemFontSize(size: 12)))
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -104,7 +114,6 @@ class BookAddViewController: UIViewController {
         let textField = UITextField()
         textField.delegate = self
         textField.placeholder = R.string.setting.inputText()
-        textField.frame = CGRect(x: 0, y: 0, width: 0, height: 40)
         textField.keyboardType = .default
         textField.borderStyle = .roundedRect
         textField.textAlignment = .center
@@ -114,12 +123,12 @@ class BookAddViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.white
+        view.backgroundColor = .white
         pickerDate()
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         setupUI()
     }
     
@@ -142,56 +151,62 @@ class BookAddViewController: UIViewController {
 extension BookAddViewController {
     private func setupUI() {
         view.addSubview(navBar)
+        navBar.topAnchor.constraint(equalTo: view.topAnchor, constant: view.safeAreaInsets.top).isActive = true
+        navBar.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
+        navBar.heightAnchor.constraint(equalToConstant: CGFloat(numberManager.navBarHeight)).isActive = true
         
         view.addSubview(bookImage)
-        bookImage.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        bookImage.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        bookImage.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 40.0).isActive = true
-        bookImage.topAnchor.constraint(equalTo: navBar.bottomAnchor, constant: 50.0).isActive = true
+        bookImage.heightAnchor.constraint(equalToConstant: CGFloat(numberManager.bookImageHeightConstraint)).isActive = true
+        bookImage.widthAnchor.constraint(equalToConstant: CGFloat(numberManager.bookImageHeightConstraint)).isActive = true
+        bookImage.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: CGFloat(numberManager.bookImageLeftConstraint)).isActive = true
+        bookImage.topAnchor.constraint(equalTo: navBar.bottomAnchor, constant: CGFloat(numberManager.bookImageRightConstraint)).isActive = true
         
         view.addSubview(imagePutButton)
-        imagePutButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15).isActive = true
-        imagePutButton.widthAnchor.constraint(equalToConstant: 150.0).isActive = true
+        imagePutButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: CGFloat(numberManager.imagePutButtonRightConstraint)).isActive = true
+        imagePutButton.widthAnchor.constraint(equalToConstant: CGFloat(numberManager.imagePutButtonWidthConstraint)).isActive = true
         imagePutButton.centerYAnchor.constraint(equalTo: bookImage.centerYAnchor).isActive = true
         
         view.addSubview(nameLabel)
-        nameLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40.0).isActive = true
-        nameLabel.topAnchor.constraint(equalTo: bookImage.bottomAnchor, constant: 50.0).isActive = true
+        nameLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: CGFloat(numberManager.labelLeftConstraint)).isActive = true
+        nameLabel.topAnchor.constraint(equalTo: bookImage.bottomAnchor, constant: CGFloat(numberManager.labelTopConstraint)).isActive = true
         
         view.addSubview(nameTextField)
-        nameTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40.0).isActive = true
-        nameTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -40.0).isActive = true
-        nameTextField.topAnchor.constraint(equalTo: nameLabel.topAnchor, constant: 18.0).isActive = true
+        nameTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: CGFloat(numberManager.textFieldLeftConstraint)).isActive = true
+        nameTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: CGFloat(numberManager.textFieldRightConstraint)).isActive = true
+        nameTextField.topAnchor.constraint(equalTo: nameLabel.topAnchor, constant: CGFloat(numberManager.textFieldTopConstraint)).isActive = true
+        nameTextField.heightAnchor.constraint(equalToConstant: CGFloat(numberManager.textFieldHeightConstraint)).isActive = true
         
         view.addSubview(priceLabel)
-        priceLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40.0).isActive = true
-        priceLabel.topAnchor.constraint(equalTo: nameTextField.topAnchor, constant: 50.0).isActive = true
+        priceLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: CGFloat(numberManager.labelLeftConstraint)).isActive = true
+        priceLabel.topAnchor.constraint(equalTo: nameTextField.topAnchor, constant: CGFloat(numberManager.labelTopConstraint)).isActive = true
         
         view.addSubview(priceTextField)
-        priceTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40.0).isActive = true
-        priceTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -40.0).isActive = true
-        priceTextField.topAnchor.constraint(equalTo: priceLabel.topAnchor, constant: 18.0).isActive = true
+        priceTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: CGFloat(numberManager.textFieldLeftConstraint)).isActive = true
+        priceTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: CGFloat(numberManager.textFieldRightConstraint)).isActive = true
+        priceTextField.topAnchor.constraint(equalTo: priceLabel.topAnchor, constant: CGFloat(numberManager.textFieldTopConstraint)).isActive = true
+        priceTextField.heightAnchor.constraint(equalToConstant: CGFloat(numberManager.textFieldHeightConstraint)).isActive = true
         
         view.addSubview(purchaseDayLabel)
-        purchaseDayLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40.0).isActive = true
-        purchaseDayLabel.topAnchor.constraint(equalTo: priceTextField.topAnchor, constant: 50.0).isActive = true
+        purchaseDayLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: CGFloat(numberManager.labelLeftConstraint)).isActive = true
+        purchaseDayLabel.topAnchor.constraint(equalTo: priceTextField.topAnchor, constant: CGFloat(numberManager.labelTopConstraint)).isActive = true
         
         view.addSubview(purchaseDayTextField)
-        purchaseDayTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40.0).isActive = true
-        purchaseDayTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -40.0).isActive = true
-        purchaseDayTextField.topAnchor.constraint(equalTo: purchaseDayLabel.topAnchor, constant: 18.0).isActive = true
+        purchaseDayTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: CGFloat(numberManager.textFieldLeftConstraint)).isActive = true
+        purchaseDayTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: CGFloat(numberManager.textFieldRightConstraint)).isActive = true
+        purchaseDayTextField.topAnchor.constraint(equalTo: purchaseDayLabel.topAnchor, constant: CGFloat(numberManager.textFieldTopConstraint)).isActive = true
+        purchaseDayTextField.heightAnchor.constraint(equalToConstant: CGFloat(numberManager.textFieldHeightConstraint)).isActive = true
     }
     
-    @objc func cancel() {
+    @objc private func cancel() {
         self.dismiss(animated: true)
     }
     
-    @objc func saveBook() {
+    @objc private func saveBook() {
         print("saveBook")
         //書籍登録ボタン
     }
     
-    @objc func toolBarBtnPush(_ sender: UIBarButtonItem) {
+    @objc private func toolBarBtnPush(_ sender: UIBarButtonItem) {
         let pickerDate = inputDatePicker.date
         purchaseDayTextField.text = dateFormat.string(from: pickerDate as Date)
         self.view.endEditing(true)
@@ -202,8 +217,8 @@ extension BookAddViewController {
         purchaseDayTextField.text = dateFormat.string(from: todayDate as Date)
         inputDatePicker.datePickerMode = .date
         purchaseDayTextField.inputView = inputDatePicker
-        let pickerToolBar = UIToolbar(frame: CGRect(x: 0, y: self.view.frame.size.height/6, width: self.view.frame.size.width, height: 40.0))
-        pickerToolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
+        let pickerToolBar = UIToolbar(frame: CGRect(x: 0, y: self.view.frame.size.height / 6, width: self.view.frame.size.width, height: 40.0))
+        pickerToolBar.layer.position = CGPoint(x: self.view.frame.size.width / 2, y: self.view.frame.size.height - 20.0)
         pickerToolBar.barStyle = .default
         pickerToolBar.tintColor = .gray
         pickerToolBar.backgroundColor = .white
@@ -214,7 +229,7 @@ extension BookAddViewController {
         purchaseDayTextField.textColor = .gray
     }
     
-    @objc func selectPhoto(_ tap: UITapGestureRecognizer) {
+    @objc private func selectPhoto(_ tap: UITapGestureRecognizer) {
         photoLibraryManager.callPhotoLibrary()
     }
     
@@ -229,7 +244,7 @@ extension BookAddViewController {
         notification.removeObserver(self)
     }
     
-    @objc func keyboardWillShow(notification: Notification?) {
+    @objc private func keyboardWillShow(notification: Notification?) {
         let rect = (notification?.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
         let duration: TimeInterval? = notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double
         UIView.animate(withDuration: duration!) {
@@ -238,10 +253,10 @@ extension BookAddViewController {
         }
     }
     
-    @objc func keyboardWillHide(notification: Notification?) {
+    @objc private func keyboardWillHide(notification: Notification?) {
         let duration: TimeInterval? = notification?.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? Double
         UIView.animate(withDuration: duration!) {
-            self.view.transform = CGAffineTransform.identity
+            self.view.transform = .identity
         }
     }
 }

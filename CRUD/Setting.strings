@@ -19,3 +19,4 @@
 "bookName" = "書籍名";
 "money" = "金額";
 "purchaseDay" = "購入日";
+"editButton" = ">";
