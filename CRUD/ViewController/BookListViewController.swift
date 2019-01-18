@@ -32,7 +32,7 @@ class BookListViewController: UIViewController {
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.rowHeight = CGFloat(numberManager.tableViewRowHeight)
+        tableView.rowHeight = CGFloat(NumberManager.tableViewRowHeight)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(BookListCell.self, forCellReuseIdentifier: NSStringFromClass(BookListCell.self))
@@ -51,9 +51,9 @@ class BookListViewController: UIViewController {
         let button = UIButton()
         button.setTitle(R.string.setting.load(), for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: CGFloat(numberManager.systemFontSize(size: 13)))
+        button.titleLabel?.font = .systemFont(ofSize: CGFloat(NumberManager.fontSizeSmall))
         button.backgroundColor = .blue
-        button.layer.cornerRadius = CGFloat(numberManager.buttonCornerRadiusToCircle)
+        button.layer.cornerRadius = CGFloat(NumberManager.buttonCornerRadiusToCircle)
         button.addTarget(self, action: #selector(moreLoad(sender:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -76,18 +76,18 @@ extension BookListViewController {
         view.addSubview(navBar)
         navBar.topAnchor.constraint(equalTo: view.topAnchor, constant: view.safeAreaInsets.top).isActive = true
         navBar.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
-        navBar.heightAnchor.constraint(equalToConstant: CGFloat(numberManager.navBarHeight)).isActive = true
+        navBar.heightAnchor.constraint(equalToConstant: CGFloat(NumberManager.navBarHeight)).isActive = true
         
         view.addSubview(tableView)
-        tableView.topAnchor.constraint(equalTo: navBar.bottomAnchor, constant: CGFloat(numberManager.tableViewTopConstraint)).isActive = true
+        tableView.topAnchor.constraint(equalTo: navBar.bottomAnchor, constant: CGFloat(NumberManager.tableViewTopConstraint)).isActive = true
         tableView.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
         tableView.heightAnchor.constraint(equalToConstant: view.frame.height - view.safeAreaInsets.bottom).isActive = true
         
         view.addSubview(loadButton)
-        loadButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: CGFloat(numberManager.loadButtonRightConstraint)).isActive = true
-        loadButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: CGFloat(numberManager.loadButtonBottomConstraint)).isActive = true
-        loadButton.widthAnchor.constraint(equalToConstant: CGFloat(numberManager.loadButtonWidthConstraint)).isActive = true
-        loadButton.heightAnchor.constraint(equalToConstant: CGFloat(numberManager.loadButtonHeightConstraint)).isActive = true
+        loadButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: CGFloat(NumberManager.loadButtonRightConstraint)).isActive = true
+        loadButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: CGFloat(NumberManager.loadButtonBottomConstraint)).isActive = true
+        loadButton.widthAnchor.constraint(equalToConstant: CGFloat(NumberManager.loadButtonWidthConstraint)).isActive = true
+        loadButton.heightAnchor.constraint(equalToConstant: CGFloat(NumberManager.loadButtonHeightConstraint)).isActive = true
     }
     
     @objc private func bookAdd() {
@@ -109,6 +109,7 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell: BookListCell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(BookListCell.self), for: indexPath) as? BookListCell {
             cell.bookimage.image = R.image.home()
+            //ダミーで適当な値を代入しています
             cell.title.text = "書籍一覧"
             cell.price.text = "200.000円"
             cell.bookDay.text = "2018/12/31"

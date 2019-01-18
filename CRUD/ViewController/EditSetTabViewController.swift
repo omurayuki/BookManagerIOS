@@ -13,9 +13,9 @@ class EditSetTabViewController: UITabBarController {
 extension EditSetTabViewController {
     private func setTabBar() {
         editViewController = EditViewController()
-        editViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .featured, tag: numberManager.editTabBarFlg)
+        editViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .featured, tag: NumberManager.editTabBarFlg)
         logoutViewController = LogoutViewController()
-        logoutViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: numberManager.logoutTabBarFlg)
+        logoutViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: NumberManager.logoutTabBarFlg)
         let myTabs = NSArray(objects: editViewController, logoutViewController)
         self.setViewControllers(myTabs as? [UIViewController], animated: false)
     }

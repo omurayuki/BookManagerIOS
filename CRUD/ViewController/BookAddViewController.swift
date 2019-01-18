@@ -38,7 +38,7 @@ class BookAddViewController: UIViewController {
         let imageView = UIImageView()
         imageView.image = R.image.home()
         imageView.layer.borderColor = UIColor.gray.cgColor
-        imageView.layer.borderWidth = CGFloat(numberManager.imageViewBorderWidth)
+        imageView.layer.borderWidth = CGFloat(NumberManager.imageViewBorderWidth)
         imageView.contentMode = .scaleToFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -47,12 +47,12 @@ class BookAddViewController: UIViewController {
     private lazy var imagePutButton: UIButton = {
         let button = UIButton()
         button.setTitle(R.string.setting.imageAddButton(), for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: CGFloat(numberManager.systemFontSize(size: 15)))
+        button.titleLabel?.font = .systemFont(ofSize: CGFloat(NumberManager.fontSizeMiddle))
         button.layer.cornerRadius = 5
         button.backgroundColor = .blue
         button.setTitleShadowColor(.white, for: .normal)
         let tap = UITapGestureRecognizer(target: self, action: #selector(selectPhoto(_:)) as Selector)
-        tap.numberOfTapsRequired = numberManager.taps
+        tap.numberOfTapsRequired = NumberManager.taps
         button.addGestureRecognizer(tap)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -61,7 +61,7 @@ class BookAddViewController: UIViewController {
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.text = R.string.setting.bookName()
-        label.font = .systemFont(ofSize: CGFloat(numberManager.systemFontSize(size: 12)))
+        label.font = .systemFont(ofSize: CGFloat(NumberManager.fontSizeSmall))
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -71,7 +71,7 @@ class BookAddViewController: UIViewController {
         textField.delegate = self
         textField.placeholder = R.string.setting.inputText()
         textField.keyboardType = .default
-        textField.font = .systemFont(ofSize: CGFloat(numberManager.systemFontSize(size: 14)))
+        textField.font = .systemFont(ofSize: CGFloat(NumberManager.fontSizeMiddle))
         textField.borderStyle = .roundedRect
         textField.returnKeyType = .done
         textField.clearButtonMode = .always
@@ -83,7 +83,7 @@ class BookAddViewController: UIViewController {
     private lazy var priceLabel: UILabel = {
         let label = UILabel()
         label.text = R.string.setting.money()
-        label.font = .systemFont(ofSize: CGFloat(numberManager.systemFontSize(size: 12)))
+        label.font = .systemFont(ofSize: CGFloat(NumberManager.fontSizeSmall))
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -93,7 +93,7 @@ class BookAddViewController: UIViewController {
         textField.delegate = self
         textField.placeholder = R.string.setting.inputText()
         textField.keyboardType = .default
-        textField.font = .systemFont(ofSize: CGFloat(numberManager.systemFontSize(size: 14)))
+        textField.font = .systemFont(ofSize: CGFloat(NumberManager.fontSizeMiddle))
         textField.borderStyle = .roundedRect
         textField.returnKeyType = .done
         textField.clearButtonMode = .always
@@ -105,7 +105,7 @@ class BookAddViewController: UIViewController {
     private lazy var purchaseDayLabel: UILabel = {
         let label = UILabel()
         label.text = R.string.setting.purchaseDay()
-        label.font = .systemFont(ofSize: CGFloat(numberManager.systemFontSize(size: 12)))
+        label.font = .systemFont(ofSize: CGFloat(NumberManager.fontSizeSmall))
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -141,7 +141,7 @@ class BookAddViewController: UIViewController {
         super.viewWillAppear(animated)
         configureObserver()
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         removeObserver()
@@ -153,48 +153,48 @@ extension BookAddViewController {
         view.addSubview(navBar)
         navBar.topAnchor.constraint(equalTo: view.topAnchor, constant: view.safeAreaInsets.top).isActive = true
         navBar.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
-        navBar.heightAnchor.constraint(equalToConstant: CGFloat(numberManager.navBarHeight)).isActive = true
+        navBar.heightAnchor.constraint(equalToConstant: CGFloat(NumberManager.navBarHeight)).isActive = true
         
         view.addSubview(bookImage)
-        bookImage.heightAnchor.constraint(equalToConstant: CGFloat(numberManager.bookImageHeightConstraint)).isActive = true
-        bookImage.widthAnchor.constraint(equalToConstant: CGFloat(numberManager.bookImageHeightConstraint)).isActive = true
-        bookImage.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: CGFloat(numberManager.bookImageLeftConstraint)).isActive = true
-        bookImage.topAnchor.constraint(equalTo: navBar.bottomAnchor, constant: CGFloat(numberManager.bookImageRightConstraint)).isActive = true
+        bookImage.heightAnchor.constraint(equalToConstant: CGFloat(NumberManager.bookImageHeightConstraint)).isActive = true
+        bookImage.widthAnchor.constraint(equalToConstant: CGFloat(NumberManager.bookImageHeightConstraint)).isActive = true
+        bookImage.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: CGFloat(NumberManager.bookImageLeftConstraint)).isActive = true
+        bookImage.topAnchor.constraint(equalTo: navBar.bottomAnchor, constant: CGFloat(NumberManager.bookImageRightConstraint)).isActive = true
         
         view.addSubview(imagePutButton)
-        imagePutButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: CGFloat(numberManager.imagePutButtonRightConstraint)).isActive = true
-        imagePutButton.widthAnchor.constraint(equalToConstant: CGFloat(numberManager.imagePutButtonWidthConstraint)).isActive = true
+        imagePutButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: CGFloat(NumberManager.imagePutButtonRightConstraint)).isActive = true
+        imagePutButton.widthAnchor.constraint(equalToConstant: CGFloat(NumberManager.imagePutButtonWidthConstraint)).isActive = true
         imagePutButton.centerYAnchor.constraint(equalTo: bookImage.centerYAnchor).isActive = true
         
         view.addSubview(nameLabel)
-        nameLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: CGFloat(numberManager.labelLeftConstraint)).isActive = true
-        nameLabel.topAnchor.constraint(equalTo: bookImage.bottomAnchor, constant: CGFloat(numberManager.labelTopConstraint)).isActive = true
+        nameLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: CGFloat(NumberManager.labelLeftConstraint)).isActive = true
+        nameLabel.topAnchor.constraint(equalTo: bookImage.bottomAnchor, constant: CGFloat(NumberManager.labelTopConstraint)).isActive = true
         
         view.addSubview(nameTextField)
-        nameTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: CGFloat(numberManager.textFieldLeftConstraint)).isActive = true
-        nameTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: CGFloat(numberManager.textFieldRightConstraint)).isActive = true
-        nameTextField.topAnchor.constraint(equalTo: nameLabel.topAnchor, constant: CGFloat(numberManager.textFieldTopConstraint)).isActive = true
-        nameTextField.heightAnchor.constraint(equalToConstant: CGFloat(numberManager.textFieldHeightConstraint)).isActive = true
+        nameTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: CGFloat(NumberManager.textFieldLeftConstraint)).isActive = true
+        nameTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: CGFloat(NumberManager.textFieldRightConstraint)).isActive = true
+        nameTextField.topAnchor.constraint(equalTo: nameLabel.topAnchor, constant: CGFloat(NumberManager.textFieldTopConstraint)).isActive = true
+        nameTextField.heightAnchor.constraint(equalToConstant: CGFloat(NumberManager.textFieldHeightConstraint)).isActive = true
         
         view.addSubview(priceLabel)
-        priceLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: CGFloat(numberManager.labelLeftConstraint)).isActive = true
-        priceLabel.topAnchor.constraint(equalTo: nameTextField.topAnchor, constant: CGFloat(numberManager.labelTopConstraint)).isActive = true
+        priceLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: CGFloat(NumberManager.labelLeftConstraint)).isActive = true
+        priceLabel.topAnchor.constraint(equalTo: nameTextField.topAnchor, constant: CGFloat(NumberManager.labelTopConstraint)).isActive = true
         
         view.addSubview(priceTextField)
-        priceTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: CGFloat(numberManager.textFieldLeftConstraint)).isActive = true
-        priceTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: CGFloat(numberManager.textFieldRightConstraint)).isActive = true
-        priceTextField.topAnchor.constraint(equalTo: priceLabel.topAnchor, constant: CGFloat(numberManager.textFieldTopConstraint)).isActive = true
-        priceTextField.heightAnchor.constraint(equalToConstant: CGFloat(numberManager.textFieldHeightConstraint)).isActive = true
+        priceTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: CGFloat(NumberManager.textFieldLeftConstraint)).isActive = true
+        priceTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: CGFloat(NumberManager.textFieldRightConstraint)).isActive = true
+        priceTextField.topAnchor.constraint(equalTo: priceLabel.topAnchor, constant: CGFloat(NumberManager.textFieldTopConstraint)).isActive = true
+        priceTextField.heightAnchor.constraint(equalToConstant: CGFloat(NumberManager.textFieldHeightConstraint)).isActive = true
         
         view.addSubview(purchaseDayLabel)
-        purchaseDayLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: CGFloat(numberManager.labelLeftConstraint)).isActive = true
-        purchaseDayLabel.topAnchor.constraint(equalTo: priceTextField.topAnchor, constant: CGFloat(numberManager.labelTopConstraint)).isActive = true
+        purchaseDayLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: CGFloat(NumberManager.labelLeftConstraint)).isActive = true
+        purchaseDayLabel.topAnchor.constraint(equalTo: priceTextField.topAnchor, constant: CGFloat(NumberManager.labelTopConstraint)).isActive = true
         
         view.addSubview(purchaseDayTextField)
-        purchaseDayTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: CGFloat(numberManager.textFieldLeftConstraint)).isActive = true
-        purchaseDayTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: CGFloat(numberManager.textFieldRightConstraint)).isActive = true
-        purchaseDayTextField.topAnchor.constraint(equalTo: purchaseDayLabel.topAnchor, constant: CGFloat(numberManager.textFieldTopConstraint)).isActive = true
-        purchaseDayTextField.heightAnchor.constraint(equalToConstant: CGFloat(numberManager.textFieldHeightConstraint)).isActive = true
+        purchaseDayTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: CGFloat(NumberManager.textFieldLeftConstraint)).isActive = true
+        purchaseDayTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: CGFloat(NumberManager.textFieldRightConstraint)).isActive = true
+        purchaseDayTextField.topAnchor.constraint(equalTo: purchaseDayLabel.topAnchor, constant: CGFloat(NumberManager.textFieldTopConstraint)).isActive = true
+        purchaseDayTextField.heightAnchor.constraint(equalToConstant: CGFloat(NumberManager.textFieldHeightConstraint)).isActive = true
     }
     
     @objc private func cancel() {
@@ -238,25 +238,27 @@ extension BookAddViewController {
         notification.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         notification.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
-    
+
     private func removeObserver() {
         let notification = NotificationCenter.default
         notification.removeObserver(self)
     }
-    
+
     @objc private func keyboardWillShow(notification: Notification?) {
         let rect = (notification?.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
-        let duration: TimeInterval? = notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double
-        UIView.animate(withDuration: duration!) {
-            let transform = CGAffineTransform(translationX: 0, y: -((rect?.size.height)! - 200))
-            self.view.transform = transform
+        if let duration = notification?.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double {
+            UIView.animate(withDuration: duration) {
+                let transform = CGAffineTransform(translationX: 0, y: -((rect?.size.height)! - 250))
+                self.view.transform = transform
+            }
         }
     }
-    
+
     @objc private func keyboardWillHide(notification: Notification?) {
-        let duration: TimeInterval? = notification?.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? Double
-        UIView.animate(withDuration: duration!) {
-            self.view.transform = .identity
+        if let duration = notification?.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? Double {
+            UIView.animate(withDuration: duration) {
+                self.view.transform = .identity
+            }
         }
     }
 }

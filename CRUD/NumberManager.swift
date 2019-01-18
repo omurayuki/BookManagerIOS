@@ -1,50 +1,46 @@
 import Foundation
 
-let numberManager = NumberManager()
-
 struct NumberManager {
-    let bookListTabBarFlg = 1
-    let editTabBarFlg = 1
-    let logoutTabBarFlg = 2
-    let navBarHeight = 44
-    let tableViewTopConstraint = 0
-    let loadButtonRightConstraint = -20
-    let loadButtonBottomConstraint = -100
-    let loadButtonWidthConstraint = 50
-    let loadButtonHeightConstraint = 50
-    let bookImageHeightConstraint = 100
-    let bookImageWidthConstraint = 150
-    let bookImageLeftConstraint = 40
-    let bookImageRightConstraint = 50
-    let imagePutButtonRightConstraint = -15
-    let imagePutButtonWidthConstraint = 150
-    let labelLeftConstraint = 40
-    let labelTopConstraint = 50
-    let textFieldLeftConstraint = 40
-    let textFieldRightConstraint = -40
-    let textFieldTopConstraint = 18
-    let textFieldHeightConstraint = 40
-    let logoutButtonWidthConstraint = 200
-    let bookImageTopConstraint = 20
-    let bookImageLeftConstraintInCell = 32
-    let bookImageWidthConstraintInCell = 90
-    let bookImageHeightConstraintInCell = 65
-    let titleTopConstraint = 20
-    let titleLeftConstraint = 40
-    let priceTopConstraint = 35
-    let priceLeftConstraint = 40
-    let bookDayTopConstraint = 70
-    let bookDayLeftConstraint = 40
-    let editButtonTopConstrain = 35
-    let editButtonRightConstraint = -10
-    let taps = 1
-    let imageViewBorderWidth = 1
-    let buttonCornerRadius = 5
-    let tableViewRowHeight = 100
-    let buttonCornerRadiusToCircle = 25
-    
-    func systemFontSize(size: Int) -> Int {
-        let fontSize = size
-        return fontSize
-    }
+    static let bookListTabBarFlg = 1
+    static let editTabBarFlg = 1
+    static let logoutTabBarFlg = 2
+    static let navBarHeight = 44
+    static let tableViewTopConstraint = 0
+    static let loadButtonRightConstraint = -20
+    static let loadButtonBottomConstraint = -100
+    static let loadButtonWidthConstraint = 50
+    static let loadButtonHeightConstraint = 50
+    static let bookImageHeightConstraint = 100
+    static let bookImageWidthConstraint = 150
+    static let bookImageLeftConstraint = 40
+    static let bookImageRightConstraint = 50
+    static let imagePutButtonRightConstraint = -15
+    static let imagePutButtonWidthConstraint = 150
+    static let labelLeftConstraint = 40
+    static let labelTopConstraint = 50
+    static let textFieldLeftConstraint = 40
+    static let textFieldRightConstraint = -40
+    static let textFieldTopConstraint = 18
+    static let textFieldHeightConstraint = 40
+    static let logoutButtonWidthConstraint = 200
+    static let bookImageTopConstraint = 20
+    static let bookImageLeftConstraintInCell = 32
+    static let bookImageWidthConstraintInCell = 90
+    static let bookImageHeightConstraintInCell = 65
+    static let titleTopConstraint = 20
+    static let titleLeftConstraint = 40
+    static let priceTopConstraint = 35
+    static let priceLeftConstraint = 40
+    static let bookDayTopConstraint = 70
+    static let bookDayLeftConstraint = 40
+    static let editButtonTopConstrain = 35
+    static let editButtonRightConstraint = -10
+    static let taps = 1
+    static let imageViewBorderWidth = 1
+    static let buttonCornerRadius = 5
+    static let tableViewRowHeight = 100
+    static let buttonCornerRadiusToCircle = 25
+    static let fontSizeSmall = 12
+    static let fontSizeMiddle = 15
+    static let fontSizeLarge = 18
 }

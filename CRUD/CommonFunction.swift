@@ -20,4 +20,16 @@ class CommonFunction: UIViewController {
 
         viewController.present(alertController, animated: true)
     }
+    
+    static public func alertMessage(messageToDisplay: String, viewController: UIViewController, completion: @escaping () -> Void) {
+        let alert: UIAlertController = UIAlertController(title: R.string.setting.display(), message: messageToDisplay, preferredStyle: UIAlertController.Style.actionSheet)
+        let defaultAction: UIAlertAction = UIAlertAction(title: R.string.setting.ok(), style: UIAlertAction.Style.default, handler: {
+            (_: UIAlertAction!) in
+            completion()
+        })
+        let cancelAction: UIAlertAction = UIAlertAction(title: R.string.setting.cancel(), style: UIAlertAction.Style.cancel, handler: nil)
+        alert.addAction(cancelAction)
+        alert.addAction(defaultAction)
+        viewController.present(alert, animated: true)
+    }
 }
