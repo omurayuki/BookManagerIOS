@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-class LogoutViewController: UIViewController {
+class LogoutViewController: UIViewController, AlertProtocol {
     
     private lazy var navBar: UINavigationBar = {
         let navBar = UINavigationBar()
@@ -55,7 +55,7 @@ extension LogoutViewController {
     }
     
     @objc private func goLoginViewController(sender: UIButton) {
-        CommonFunction.alertMessage(messageToDisplay: R.string.setting.wannaLogout(), viewController: self) {
+        alertMessage(message: R.string.setting.wannaLogout(), viewController: self) {
             let loginViewController = R.storyboard.main.loginNavi()!
             self.present(loginViewController, animated: true)
         }

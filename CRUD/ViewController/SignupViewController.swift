@@ -1,6 +1,6 @@
 import UIKit
 
-class SignupViewController: UIViewController {
+class SignupViewController: UIViewController, ViewControllerProtocol, isValidEmailProtocol {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passTextField: UITextField!
@@ -25,18 +25,18 @@ class SignupViewController: UIViewController {
             guard let passText = passTextField.text else { return }
             guard let onemorrPassText = onemorePassTextField.text else { return }
             
-            if CommonFunction.isValidEmail(emailText) {
+            if isValidEmail(emailText) {
             if passText == onemorrPassText {
                 let mainTab = MainTabBarController()
                 self.present(mainTab, animated: true)
                 } else {
-                    CommonFunction.showMessage(messageToDisplay: R.string.setting.notMatchPass(), viewController: self)
+                    showMessage(message: R.string.setting.notMatchPass(), viewController: self)
                 }
             } else {
-                CommonFunction.showMessage(messageToDisplay: R.string.setting.emailFormatErr(), viewController: self)
+                showMessage(message: R.string.setting.emailFormatErr(), viewController: self)
             }
         } else {
-            CommonFunction.showMessage(messageToDisplay: R.string.setting.emptyErr(), viewController: self)
+            showMessage(message: R.string.setting.emptyErr(), viewController: self)
         }
         
     }

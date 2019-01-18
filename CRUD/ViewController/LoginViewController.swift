@@ -1,7 +1,7 @@
 import UIKit
 
-class LoginViewController: UIViewController {
-
+class LoginViewController: UIViewController, ViewControllerProtocol, isValidEmailProtocol {
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passTextField: UITextField!
     
@@ -13,20 +13,17 @@ class LoginViewController: UIViewController {
     @IBAction func loginBtnTaped(_ sender: Any) {
         //空欄チェック
         if !(emailTextField.text?.isEmpty)! && !(passTextField.text?.isEmpty)! {
-                if let emailText = emailTextField.text, let pass = passTextField.text, CommonFunction.isValidEmail(emailText) {
-                    let mainTab = MainTabBarController()
-                    self.present(mainTab, animated: true) {
-                        self.emailTextField.text = ""
-                        self.passTextField.text = ""
-                    }
-                } else {
-//                    viewController.showMessage(message: R.string.setting.emailFormatErr())
-                    CommonFunction.showMessage(messageToDisplay: R.string.setting.emailFormatErr(), viewController: self)
+            if let emailText = emailTextField.text, let pass = passTextField.text, isValidEmail(emailText) {
+                let mainTab = MainTabBarController()
+                self.present(mainTab, animated: true) {
+                    self.emailTextField.text = ""
+                    self.passTextField.text = ""
                 }
-            let pass = passTextField.text
-            //バリデーションチェック passはキーボードを英数字ものにする
+            } else {
+                showMessage(message: R.string.setting.emailFormatErr(), viewController: self)
+            }
         } else {
-            CommonFunction.showMessage(messageToDisplay: R.string.setting.emptyErr(), viewController: self)
+            showMessage(message: R.string.setting.emptyErr(), viewController: self)
         }
     }
 }
