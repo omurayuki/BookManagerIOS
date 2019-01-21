@@ -10,8 +10,8 @@ struct NumberManager {
     static let loadButtonBottomConstraint = -100
     static let loadButtonWidthConstraint = 50
     static let loadButtonHeightConstraint = 50
-    static let bookImageHeightConstraint = 100
-    static let bookImageWidthConstraint = 150
+    static let bookImageHeightConstraint = 143
+    static let bookImageWidthConstraint = 100
     static let bookImageLeftConstraint = 40
     static let bookImageRightConstraint = 50
     static let imagePutButtonRightConstraint = -15

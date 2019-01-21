@@ -6,15 +6,8 @@ class LogoutViewController: UIViewController, AlertProtocol {
     private lazy var navBar: UINavigationBar = {
         let navBar = UINavigationBar()
         navBar.barTintColor = .white
-        navBar.pushItem(navItem, animated: true)
         navBar.translatesAutoresizingMaskIntoConstraints = false
         return navBar
-    }()
-    
-    private lazy var navItem: UINavigationItem = {
-        let navItem = UINavigationItem()
-        navItem.title = R.string.setting.setting()
-        return navItem
     }()
     
     private lazy var logoutBtn: UIButton = {
@@ -35,16 +28,13 @@ class LogoutViewController: UIViewController, AlertProtocol {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        setupNavBar()
+        setupNavItem()
     }
 }
 
 extension LogoutViewController {
-    private func setupNavBar() {
-        view.addSubview(navBar)
-        navBar.topAnchor.constraint(equalTo: view.topAnchor, constant: view.safeAreaInsets.top).isActive = true
-        navBar.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
-        navBar.heightAnchor.constraint(equalToConstant: navBar.frame.height).isActive = true
+    private func setupNavItem() {
+        self.navigationItem.title = R.string.setting.setting()
     }
     
     private func setupLogoutButton() {

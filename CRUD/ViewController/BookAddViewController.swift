@@ -156,7 +156,7 @@ extension BookAddViewController {
         navBar.heightAnchor.constraint(equalToConstant: CGFloat(NumberManager.navBarHeight)).isActive = true
         
         view.addSubview(bookImage)
-        bookImage.heightAnchor.constraint(equalToConstant: CGFloat(NumberManager.bookImageHeightConstraint)).isActive = true
+        bookImage.heightAnchor.constraint(equalToConstant: CGFloat(NumberManager.bookImageWidthConstraint)).isActive = true
         bookImage.widthAnchor.constraint(equalToConstant: CGFloat(NumberManager.bookImageHeightConstraint)).isActive = true
         bookImage.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: CGFloat(NumberManager.bookImageLeftConstraint)).isActive = true
         bookImage.topAnchor.constraint(equalTo: navBar.bottomAnchor, constant: CGFloat(NumberManager.bookImageRightConstraint)).isActive = true

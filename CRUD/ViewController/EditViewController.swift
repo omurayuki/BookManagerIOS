@@ -15,7 +15,21 @@ class EditViewController: UIViewController {
     private let inputDatePicker = UIDatePicker()
     private var photoLibraryManager: PhotoLibraryManager!
     
+    private lazy var navBar: UINavigationBar = {
+        let navBar = UINavigationBar()
+        navBar.barTintColor = .white
+        navBar.translatesAutoresizingMaskIntoConstraints = false
+        return navBar
+    }()
+    
+    private lazy var saveButton: UIBarButtonItem = {
+        let saveButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(bookSave))
+        return saveButton
+    }()
+    
     override func viewDidLoad() {
+        navigationItem.title = "書籍編集"
+        self.navigationItem.rightBarButtonItem = saveButton
         super.viewDidLoad()
         textfieldDelegate()
         setupBookImageUI()
@@ -27,11 +41,7 @@ class EditViewController: UIViewController {
         photoLibraryManager?.callPhotoLibrary()
     }
     
-    @IBAction func cancelButtonTapped(_ sender: Any) {
-        self.dismiss(animated: true)
-    }
-    
-    @IBAction func saveButtonTapped(_ sender: Any) {
+    @objc private func bookSave() {
         print("saved!!")
         //書籍編集情報保存
     }
