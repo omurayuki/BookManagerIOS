@@ -13,16 +13,8 @@ class BookListViewController: UIViewController {
     private lazy var navBar: UINavigationBar = {
         let navBar = UINavigationBar()
         navBar.barTintColor = .white
-        navBar.pushItem(navItem, animated: false)
         navBar.translatesAutoresizingMaskIntoConstraints = false
         return navBar
-    }()
-    
-    private lazy var navItem: UINavigationItem = {
-        let navItem = UINavigationItem()
-        navItem.title = R.string.setting.bookList()
-        navItem.rightBarButtonItem = addButton
-        return navItem
     }()
     
     private lazy var addButton: UIBarButtonItem = {
@@ -66,6 +58,7 @@ class BookListViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        setupNavItem()
         setupUI()
     }
 }
@@ -74,20 +67,20 @@ extension BookListViewController {
     private func setupUI() {
         view.addSubview(safeView)
         view.addSubview(navBar)
-        navBar.topAnchor.constraint(equalTo: view.topAnchor, constant: view.safeAreaInsets.top).isActive = true
-        navBar.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
-        navBar.heightAnchor.constraint(equalToConstant: CGFloat(NumberManager.navBarHeight)).isActive = true
-        
         view.addSubview(tableView)
         tableView.topAnchor.constraint(equalTo: navBar.bottomAnchor, constant: CGFloat(NumberManager.tableViewTopConstraint)).isActive = true
         tableView.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
         tableView.heightAnchor.constraint(equalToConstant: view.frame.height - view.safeAreaInsets.bottom).isActive = true
-        
         view.addSubview(loadButton)
         loadButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: CGFloat(NumberManager.loadButtonRightConstraint)).isActive = true
         loadButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: CGFloat(NumberManager.loadButtonBottomConstraint)).isActive = true
         loadButton.widthAnchor.constraint(equalToConstant: CGFloat(NumberManager.loadButtonWidthConstraint)).isActive = true
         loadButton.heightAnchor.constraint(equalToConstant: CGFloat(NumberManager.loadButtonHeightConstraint)).isActive = true
+    }
+    
+    func setupNavItem() {
+        self.navigationItem.title = R.string.setting.bookList()
+        self.navigationItem.rightBarButtonItem = addButton
     }
     
     @objc private func bookAdd() {
@@ -123,8 +116,8 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         //個別の情報を載せて遷移
+        tableView.deselectRow(at: indexPath, animated: true)
         let editSetViewController = R.storyboard.main.editSettingTab()!
-//        self.present(editSetViewController, animated: true)
-        
+        self.navigationController?.pushViewController(editSetViewController, animated: true)
     }
 }
