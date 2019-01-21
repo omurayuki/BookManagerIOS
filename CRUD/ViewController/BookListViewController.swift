@@ -124,6 +124,7 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         //個別の情報を載せて遷移
         let editSetViewController = R.storyboard.main.editSettingTab()!
-        self.present(editSetViewController, animated: true)
+//        self.present(editSetViewController, animated: true)
+        
     }
 }
