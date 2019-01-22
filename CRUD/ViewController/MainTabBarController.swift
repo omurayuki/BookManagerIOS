@@ -23,7 +23,7 @@ extension MainTabBarController {
         do {
             logoutViewController = LogoutViewController()
             let navi = UINavigationController(rootViewController: logoutViewController)
-            navi.tabBarItem = UITabBarItem(title: R.string.setting.setting(), image: nil, tag: 2)
+            navi.tabBarItem = UITabBarItem(title: R.string.setting.setting(), image: nil, tag: NumberManager.logoutTabBarFlg)
             viewControllers.append(navi)
         }
         self.setViewControllers(viewControllers, animated: false)

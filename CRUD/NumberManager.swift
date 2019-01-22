@@ -2,9 +2,9 @@ import Foundation
 import UIKit
 
 struct NumberManager {
-    static let bookListTabBarFlg: Int = 1
-    static let editTabBarFlg: Int = 1
-    static let logoutTabBarFlg: Int = 2
+    static let bookListTabBarFlg = 1
+    static let editTabBarFlg = 1
+    static let logoutTabBarFlg = 2
     static let navBarHeight: CGFloat = 44
     static let tableViewTopConstraint: CGFloat = 0
     static let loadButtonRightConstraint: CGFloat = -20
@@ -36,7 +36,7 @@ struct NumberManager {
     static let bookDayLeftConstraint: CGFloat = 40
     static let editButtonTopConstrain: CGFloat = 35
     static let editButtonRightConstraint: CGFloat = -10
-    static let taps: Int = 1
+    static let taps = 1
     static let imageViewBorderWidth: CGFloat = 1
     static let buttonCornerRadius: CGFloat = 5
     static let tableViewRowHeight: CGFloat = 100
@@ -44,4 +44,9 @@ struct NumberManager {
     static let fontSizeSmall: CGFloat = 12
     static let fontSizeMiddle: CGFloat = 15
     static let fontSizeLarge: CGFloat = 18
+    static let editBorderWidth: CGFloat = 1
+    static let pickerToolBarDivide: CGFloat = 6
+    static let pickerToolBarLayerDivide: CGFloat = 2
+    static let pickerToolBarHeight: CGFloat = 40
+    static let pickerToolBarLayerWidth: CGFloat = 20
 }

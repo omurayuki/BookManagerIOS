@@ -31,7 +31,7 @@ class EditViewController: UIViewController {
 extension EditViewController {
     private func setupUI() {
         bookImage.layer.borderColor = UIColor.gray.cgColor
-        bookImage.layer.borderWidth = 1
+        bookImage.layer.borderWidth = NumberManager.editBorderWidth
     }
     
     private func selectPicker() {
@@ -39,8 +39,8 @@ extension EditViewController {
         purchaseDayTextField.text = dateFormat.string(from: todayDate as Date)
         inputDatePicker.datePickerMode = .date
         purchaseDayTextField.inputView = inputDatePicker
-        let pickerToolBar = UIToolbar(frame: CGRect(x: 0, y: self.view.frame.size.height/6, width: self.view.frame.size.width, height: 40.0))
-        pickerToolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
+        let pickerToolBar = UIToolbar(frame: CGRect(x: 0, y: self.view.frame.size.height / NumberManager.pickerToolBarDivide, width: self.view.frame.size.width, height: NumberManager.pickerToolBarHeight))
+        pickerToolBar.layer.position = CGPoint(x: self.view.frame.size.width / NumberManager.pickerToolBarLayerDivide, y: self.view.frame.size.height - NumberManager.pickerToolBarLayerWidth)
         pickerToolBar.barStyle = .default
         pickerToolBar.tintColor = UIColor.gray
         pickerToolBar.backgroundColor = UIColor.white

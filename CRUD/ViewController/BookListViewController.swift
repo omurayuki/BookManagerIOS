@@ -84,8 +84,8 @@ extension BookListViewController {
     }
     
     func setupNavItem() {
-        self.navigationItem.title = R.string.setting.bookList()
-        self.navigationItem.rightBarButtonItem = addButton
+        navigationItem.title = R.string.setting.bookList()
+        navigationItem.rightBarButtonItem = addButton
     }
     
     @objc private func bookAdd() {
@@ -126,6 +126,6 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
         let editSetViewController = R.storyboard.main.editSettingTab()!
         editSetViewController.navigationItem.title = R.string.setting.modify()
         editSetViewController.navigationItem.rightBarButtonItem = saveButton
-        self.navigationController?.pushViewController(editSetViewController, animated: true)
+        navigationController?.pushViewController(editSetViewController, animated: true)
     }
 }
