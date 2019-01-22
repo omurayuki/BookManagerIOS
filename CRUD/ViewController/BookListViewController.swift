@@ -51,6 +51,11 @@ class BookListViewController: UIViewController {
         return button
     }()
     
+    private lazy var saveButton: UIBarButtonItem = {
+        let saveButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(bookModify))
+        return saveButton
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -92,6 +97,12 @@ extension BookListViewController {
         print("moreLoad!!")
         //登録書籍情報をさらに読み込む
     }
+    
+    //EditViewControllerで発動する
+    @objc private func bookModify() {
+        print("Modify!!")
+        //書籍編集情報保存
+    }
 }
 
 extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -118,6 +129,8 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
         //個別の情報を載せて遷移
         tableView.deselectRow(at: indexPath, animated: true)
         let editSetViewController = R.storyboard.main.editSettingTab()!
+        editSetViewController.navigationItem.title = "書籍編集"
+        editSetViewController.navigationItem.rightBarButtonItem = saveButton
         self.navigationController?.pushViewController(editSetViewController, animated: true)
     }
 }
