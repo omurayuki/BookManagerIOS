@@ -18,8 +18,8 @@ class EditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         textfieldDelegate()
-        setupBookImageUI()
-        pickerDate()
+        setupUI()
+        selectPicker()
         photoLibraryManager = PhotoLibraryManager(parentViewController: self)
     }
     
@@ -29,12 +29,12 @@ class EditViewController: UIViewController {
 }
 
 extension EditViewController {
-    private func setupBookImageUI() {
+    private func setupUI() {
         bookImage.layer.borderColor = UIColor.gray.cgColor
         bookImage.layer.borderWidth = 1
     }
     
-    private func pickerDate() {
+    private func selectPicker() {
         dateFormat.dateFormat = R.string.setting.format()
         purchaseDayTextField.text = dateFormat.string(from: todayDate as Date)
         inputDatePicker.datePickerMode = .date

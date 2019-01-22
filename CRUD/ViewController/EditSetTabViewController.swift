@@ -6,12 +6,12 @@ class EditSetTabViewController: UITabBarController {
     private var logoutViewController: LogoutViewController!
     override func viewDidLoad() {
         super.viewDidLoad()
-        setTabBar()
+        setup()
     }
 }
 
 extension EditSetTabViewController {
-    private func setTabBar() {
+    private func setup() {
         editViewController = EditViewController()
         editViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .featured, tag: NumberManager.editTabBarFlg)
         logoutViewController = LogoutViewController()

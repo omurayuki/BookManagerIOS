@@ -12,18 +12,20 @@ class LoginViewController: UIViewController, ViewControllerProtocol, isValidEmai
     
     @IBAction func loginBtnTaped(_ sender: Any) {
         //空欄チェック
-        if !(emailTextField.text?.isEmpty)! && !(passTextField.text?.isEmpty)! {
-            if let emailText = emailTextField.text, let pass = passTextField.text, isValidEmail(emailText) {
+        guard let emailText = emailTextField.text else { return }
+        guard let pass = passTextField.text else { return }
+        if !emailText.isEmpty && !pass.isEmpty {
+            if isValidEmail(emailText) {
                 let mainTab = MainTabBarController()
                 self.present(mainTab, animated: true) {
                     self.emailTextField.text = ""
                     self.passTextField.text = ""
                 }
             } else {
-                showMessage(message: R.string.setting.emailFormatErr(), viewController: self)
+                showAlertMessage(message: R.string.setting.emailFormatErr(), viewController: self)
             }
         } else {
-            showMessage(message: R.string.setting.emptyErr(), viewController: self)
+            showAlertMessage(message: R.string.setting.emptyErr(), viewController: self)
         }
     }
 }

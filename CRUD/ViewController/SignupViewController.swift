@@ -30,13 +30,13 @@ class SignupViewController: UIViewController, ViewControllerProtocol, isValidEma
                 let mainTab = MainTabBarController()
                 self.present(mainTab, animated: true)
                 } else {
-                    showMessage(message: R.string.setting.notMatchPass(), viewController: self)
+                showAlertMessage(message: R.string.setting.notMatchPass(), viewController: self)
                 }
             } else {
-                showMessage(message: R.string.setting.emailFormatErr(), viewController: self)
+                showAlertMessage(message: R.string.setting.emailFormatErr(), viewController: self)
             }
         } else {
-            showMessage(message: R.string.setting.emptyErr(), viewController: self)
+            showAlertMessage(message: R.string.setting.emptyErr(), viewController: self)
         }
         
     }

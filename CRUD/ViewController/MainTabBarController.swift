@@ -7,12 +7,12 @@ class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setTabBar()
+        setup()
     }
 }
 
 extension MainTabBarController {
-    private func setTabBar() {
+    private func setup() {
         var viewControllers: [UIViewController] = []
         do {
             booklistViewController = BookListViewController()

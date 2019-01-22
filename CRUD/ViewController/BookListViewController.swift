@@ -24,7 +24,7 @@ class BookListViewController: UIViewController {
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.rowHeight = CGFloat(NumberManager.tableViewRowHeight)
+        tableView.rowHeight = NumberManager.tableViewRowHeight
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(BookListCell.self, forCellReuseIdentifier: NSStringFromClass(BookListCell.self))
@@ -43,9 +43,9 @@ class BookListViewController: UIViewController {
         let button = UIButton()
         button.setTitle(R.string.setting.load(), for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: CGFloat(NumberManager.fontSizeSmall))
+        button.titleLabel?.font = .systemFont(ofSize: NumberManager.fontSizeSmall)
         button.backgroundColor = .blue
-        button.layer.cornerRadius = CGFloat(NumberManager.buttonCornerRadiusToCircle)
+        button.layer.cornerRadius = NumberManager.buttonCornerRadiusToCircle
         button.addTarget(self, action: #selector(moreLoad(sender:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -73,14 +73,14 @@ extension BookListViewController {
         view.addSubview(safeView)
         view.addSubview(navBar)
         view.addSubview(tableView)
-        tableView.topAnchor.constraint(equalTo: navBar.bottomAnchor, constant: CGFloat(NumberManager.tableViewTopConstraint)).isActive = true
+        tableView.topAnchor.constraint(equalTo: navBar.bottomAnchor, constant: NumberManager.tableViewTopConstraint).isActive = true
         tableView.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
         tableView.heightAnchor.constraint(equalToConstant: view.frame.height - view.safeAreaInsets.bottom).isActive = true
         view.addSubview(loadButton)
-        loadButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: CGFloat(NumberManager.loadButtonRightConstraint)).isActive = true
-        loadButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: CGFloat(NumberManager.loadButtonBottomConstraint)).isActive = true
-        loadButton.widthAnchor.constraint(equalToConstant: CGFloat(NumberManager.loadButtonWidthConstraint)).isActive = true
-        loadButton.heightAnchor.constraint(equalToConstant: CGFloat(NumberManager.loadButtonHeightConstraint)).isActive = true
+        loadButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: NumberManager.loadButtonRightConstraint).isActive = true
+        loadButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: NumberManager.loadButtonBottomConstraint).isActive = true
+        loadButton.widthAnchor.constraint(equalToConstant: NumberManager.loadButtonWidthConstraint).isActive = true
+        loadButton.heightAnchor.constraint(equalToConstant: NumberManager.loadButtonHeightConstraint).isActive = true
     }
     
     func setupNavItem() {

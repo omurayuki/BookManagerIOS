@@ -13,9 +13,9 @@ class LogoutViewController: UIViewController, AlertProtocol {
     private lazy var logoutBtn: UIButton = {
         let button = UIButton()
         button.backgroundColor = .blue
-        button.layer.cornerRadius = CGFloat(NumberManager.buttonCornerRadius)
+        button.layer.cornerRadius = NumberManager.buttonCornerRadius
         button.setTitle(R.string.setting.logout(), for: .normal)
-        button.addTarget(self, action: #selector(goLoginViewController(sender: )), for: .touchUpInside)
+        button.addTarget(self, action: #selector(moveLoginViewController(sender: )), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -23,7 +23,7 @@ class LogoutViewController: UIViewController, AlertProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        setupLogoutButton()
+        setupUI()
     }
     
     override func viewDidLayoutSubviews() {
@@ -37,15 +37,15 @@ extension LogoutViewController {
         self.navigationItem.title = R.string.setting.setting()
     }
     
-    private func setupLogoutButton() {
+    private func setupUI() {
         view.addSubview(logoutBtn)
         logoutBtn.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         logoutBtn.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        logoutBtn.widthAnchor.constraint(equalToConstant: CGFloat(NumberManager.logoutButtonWidthConstraint)).isActive = true
+        logoutBtn.widthAnchor.constraint(equalToConstant: NumberManager.logoutButtonWidthConstraint).isActive = true
     }
     
-    @objc private func goLoginViewController(sender: UIButton) {
-        alertMessage(message: R.string.setting.wannaLogout(), viewController: self) {
+    @objc private func moveLoginViewController(sender: UIButton) {
+        showalertDialog(message: R.string.setting.wannaLogout(), viewController: self) {
             let loginViewController = R.storyboard.main.loginNavi()!
             self.present(loginViewController, animated: true)
         }
