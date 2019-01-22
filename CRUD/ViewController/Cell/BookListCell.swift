@@ -1,9 +1,10 @@
 import Foundation
 import UIKit
+import Kingfisher
 
 class BookListCell: UITableViewCell {
     
-    lazy var bookimage: UIImageView = {
+    private lazy var bookimage: UIImageView = {
         let bookimage = UIImageView()
         bookimage.clipsToBounds = true
         bookimage.layer.borderWidth = 1
@@ -12,30 +13,29 @@ class BookListCell: UITableViewCell {
         return bookimage
     }()
     
-    lazy var title: UILabel = {
+    private lazy var title: UILabel = {
         let title = UILabel()
         title.font = .systemFont(ofSize: NumberManager.fontSizeSmall)
         title.translatesAutoresizingMaskIntoConstraints = false
         return title
     }()
     
-    lazy var price: UILabel = {
+    private lazy var price: UILabel = {
         let price = UILabel()
         price.font = .systemFont(ofSize: NumberManager.fontSizeSmall)
         price.translatesAutoresizingMaskIntoConstraints = false
         return price
     }()
     
-    lazy var bookDay: UILabel = {
+    private lazy var bookDay: UILabel = {
         let bookDay = UILabel()
         bookDay.font = .systemFont(ofSize: NumberManager.fontSizeSmall)
         bookDay.translatesAutoresizingMaskIntoConstraints = false
         return bookDay
     }()
     
-    lazy var editButton: UIButton = {
+    private lazy var editButton: UIButton = {
         let button = UIButton()
-        button.setTitle(">", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: NumberManager.fontSizeLarge)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -75,5 +75,13 @@ extension BookListCell {
         contentView.addSubview(editButton)
         editButton.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: NumberManager.editButtonTopConstrain).isActive = true
         editButton.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: NumberManager.editButtonRightConstraint).isActive = true
+    }
+    
+    func commonInit(name: String, image: String, price: String, purchaseDate: String, editButton: String) {
+        self.title.text = name
+        self.bookimage.kf.setImage(with: URL(string: image))
+        self.price.text = price
+        self.bookDay.text = purchaseDate
+        self.editButton.setTitle(editButton, for: .normal)
     }
 }

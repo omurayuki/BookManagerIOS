@@ -125,9 +125,17 @@
 				C905A88921E71FCA00BA7723 /* BookAddViewController.swift */,
 				C954C83E21E8587E0040724A /* EditViewController.swift */,
 				C905A88721E708CC00BA7723 /* LogoutViewController.swift */,
-				C905A88521E6F04800BA7723 /* BookListCell.swift */,
+				C9BFFF9621F6D20F00D6C00D /* Cell */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C9BFFF9621F6D20F00D6C00D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C905A88521E6F04800BA7723 /* BookListCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		E82AC2E782597CDA39D43CEC /* Pods */ = {

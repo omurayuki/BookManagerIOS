@@ -112,12 +112,7 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell: BookListCell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(BookListCell.self), for: indexPath) as? BookListCell {
-            cell.bookimage.image = R.image.home()
-            //ダミーで適当な値を代入しています
-            cell.title.text = "書籍一覧"
-            cell.price.text = "200.000円"
-            cell.bookDay.text = "2018/12/31"
-            cell.editButton.setTitle(R.string.setting.editButton(), for: .normal)
+            cell.commonInit(name: "書籍一覧", image: "home", price: "200.000円", purchaseDate: "2018/12/31", editButton: R.string.setting.editButton())
             return cell
         }
         let cell = UITableViewCell()
@@ -129,7 +124,7 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
         //個別の情報を載せて遷移
         tableView.deselectRow(at: indexPath, animated: true)
         let editSetViewController = R.storyboard.main.editSettingTab()!
-        editSetViewController.navigationItem.title = "書籍編集"
+        editSetViewController.navigationItem.title = R.string.setting.modify()
         editSetViewController.navigationItem.rightBarButtonItem = saveButton
         self.navigationController?.pushViewController(editSetViewController, animated: true)
     }
