@@ -24,11 +24,11 @@ struct PhotoLibraryManager {
             }))
             parentViewController?.present(alert, animated: true)
         case .notDetermined:
-            print("notDetermined")
+            break
         case .restricted:
-            print("restricted")
+            break
         case .authorized:
-            print("authorized")
+            break
         }
     }
     
