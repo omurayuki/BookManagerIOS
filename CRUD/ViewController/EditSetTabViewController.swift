@@ -13,10 +13,10 @@ class EditSetTabViewController: UITabBarController {
 extension EditSetTabViewController {
     private func setup() {
         editViewController = EditViewController()
-        editViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .featured, tag: NumberManager.editTabBarFlg)
+        editViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .featured, tag: NumberManager.Flag.editTabBarFlg)
         logoutViewController = LogoutViewController()
-        logoutViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: NumberManager.logoutTabBarFlg)
+        logoutViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: NumberManager.Flag.logoutTabBarFlg)
         let myTabs = NSArray(objects: editViewController, logoutViewController)
-        self.setViewControllers(myTabs as? [UIViewController], animated: false)
+        setViewControllers(myTabs as? [UIViewController], animated: false)
     }
 }

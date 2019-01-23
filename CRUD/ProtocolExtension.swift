@@ -1,11 +1,11 @@
 import Foundation
 import UIKit
 
-protocol isValidEmailProtocol {
+protocol EmailValidable {
     func isValidEmail(_ string: String) -> Bool
 }
 
-extension isValidEmailProtocol where Self: UIViewController {
+extension EmailValidable where Self: UIViewController {
     func isValidEmail(_ string: String) -> Bool {
         let rep = "^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$"
         let email = string

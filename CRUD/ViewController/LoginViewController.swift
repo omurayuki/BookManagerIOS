@@ -1,6 +1,6 @@
 import UIKit
 
-class LoginViewController: UIViewController, ViewControllerProtocol, isValidEmailProtocol {
+class LoginViewController: UIViewController, ViewControllerProtocol, EmailValidable {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passTextField: UITextField!
@@ -11,22 +11,16 @@ class LoginViewController: UIViewController, ViewControllerProtocol, isValidEmai
     }
     
     @IBAction func loginBtnTaped(_ sender: Any) {
-        //空欄チェック
         guard let emailText = emailTextField.text else { return }
         guard let pass = passTextField.text else { return }
-        if !emailText.isEmpty && !pass.isEmpty {
-            if isValidEmail(emailText) {
-                let mainTab = MainTabBarController()
-                self.present(mainTab, animated: true) {
-                    self.emailTextField.text = ""
-                    self.passTextField.text = ""
-                }
-            } else {
-                showAlertMessage(message: R.string.setting.emailFormatErr(), viewController: self)
-            }
-        } else {
-            showAlertMessage(message: R.string.setting.emptyErr(), viewController: self)
+        guard !emailText.isEmpty && !pass.isEmpty else {
+            return showAlertMessage(message: R.string.setting.emailFormatErr(), viewController: self)
         }
+        guard isValidEmail(emailText) else {
+            return showAlertMessage(message: R.string.setting.emptyErr(), viewController: self)
+        }
+        let mainTab = MainTabBarController()
+        self.present(mainTab, animated: true)
     }
 }
 
@@ -37,11 +31,11 @@ extension LoginViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
+        view.endEditing(true)
         return true
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
 }

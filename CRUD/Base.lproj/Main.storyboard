@@ -247,7 +247,7 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTL-Bd-cFx">
-                                <rect key="frame" x="207" y="100" width="150" height="30"/>
+                                <rect key="frame" x="203" y="100" width="150" height="30"/>
                                 <color key="backgroundColor" red="0.14009718239999999" green="0.096761348529999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="plF-EN-6YR"/>
@@ -276,7 +276,7 @@
                             <constraint firstItem="VgX-HZ-C3h" firstAttribute="trailing" secondItem="HD5-ag-z7S" secondAttribute="trailing" constant="52" id="apO-xn-1z2"/>
                             <constraint firstItem="H5f-on-xZa" firstAttribute="top" secondItem="E32-BQ-Nkr" secondAttribute="bottom" constant="57" id="bJc-ZJ-mJV"/>
                             <constraint firstItem="E32-BQ-Nkr" firstAttribute="top" secondItem="VgX-HZ-C3h" secondAttribute="top" constant="45" id="bd8-XX-vOR"/>
-                            <constraint firstItem="eTL-Bd-cFx" firstAttribute="leading" secondItem="E32-BQ-Nkr" secondAttribute="trailing" constant="20" id="csm-7J-HdQ"/>
+                            <constraint firstItem="eTL-Bd-cFx" firstAttribute="leading" secondItem="E32-BQ-Nkr" secondAttribute="trailing" constant="16" id="csm-7J-HdQ"/>
                             <constraint firstItem="uPS-Ik-ygK" firstAttribute="leading" secondItem="VgX-HZ-C3h" secondAttribute="leading" constant="44" id="eDD-S1-dLs"/>
                             <constraint firstItem="E32-BQ-Nkr" firstAttribute="leading" secondItem="VgX-HZ-C3h" secondAttribute="leading" constant="44" id="g9C-Dv-drS"/>
                             <constraint firstItem="uPS-Ik-ygK" firstAttribute="top" secondItem="HD5-ag-z7S" secondAttribute="bottom" constant="19" id="nGQ-h0-MZq"/>

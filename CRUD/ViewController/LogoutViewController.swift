@@ -34,14 +34,14 @@ class LogoutViewController: UIViewController, AlertProtocol {
 
 extension LogoutViewController {
     private func setupNavItem() {
-        self.navigationItem.title = R.string.setting.setting()
+        navigationItem.title = R.string.setting.setting()
     }
     
     private func setupUI() {
         view.addSubview(logoutBtn)
-        logoutBtn.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
-        logoutBtn.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        logoutBtn.widthAnchor.constraint(equalToConstant: NumberManager.logoutButtonWidthConstraint).isActive = true
+        logoutBtn.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        logoutBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        logoutBtn.widthAnchor.constraint(equalToConstant: NumberManager.Constraint.logoutButtonWidthConstraint).isActive = true
     }
     
     @objc private func moveLoginViewController(sender: UIButton) {

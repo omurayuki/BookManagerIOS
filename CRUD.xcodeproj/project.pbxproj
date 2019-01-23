@@ -21,8 +21,8 @@
 		C974A77221E5C0BE00CC2549 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C974A77121E5C0BE00CC2549 /* LoginViewController.swift */; };
 		C9764CDF21ED82CD004D1B34 /* PhotoLibraryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9764CDE21ED82CD004D1B34 /* PhotoLibraryManager.swift */; };
 		C9764CE921EDBDAF004D1B34 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9764CE821EDBDAF004D1B34 /* Kingfisher.framework */; };
-		C982E74F21E882EE0075F4EF /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982E74E21E882EE0075F4EF /* R.generated.swift */; };
 		C9A0A62F21E5E97E00B4C694 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A0A62E21E5E97E00B4C694 /* SignupViewController.swift */; };
+		C9B0D14F21F800CB003CCDBE /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0D14E21F800CB003CCDBE /* R.generated.swift */; };
 		C9C1BC4D21EED56A00188310 /* EditSetTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C1BC4C21EED56A00188310 /* EditSetTabViewController.swift */; };
 		C9E8DD1921F1624B0041966A /* ProtocolExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E8DD1821F1624B0041966A /* ProtocolExtension.swift */; };
 		C9F4ECBB21F037EF00A37467 /* Setting.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9F4ECBA21F037EF00A37467 /* Setting.strings */; };
@@ -46,8 +46,8 @@
 		C974A77121E5C0BE00CC2549 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C9764CDE21ED82CD004D1B34 /* PhotoLibraryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibraryManager.swift; sourceTree = "<group>"; };
 		C9764CE821EDBDAF004D1B34 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
-		C982E74E21E882EE0075F4EF /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		C9A0A62E21E5E97E00B4C694 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		C9B0D14E21F800CB003CCDBE /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		C9C1BC4C21EED56A00188310 /* EditSetTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSetTabViewController.swift; sourceTree = "<group>"; };
 		C9E8DD1821F1624B0041966A /* ProtocolExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolExtension.swift; sourceTree = "<group>"; };
 		C9F4ECBA21F037EF00A37467 /* Setting.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Setting.strings; sourceTree = "<group>"; };
@@ -104,10 +104,10 @@
 				C916264921E323DA00F85B15 /* LaunchScreen.storyboard */,
 				C916264C21E323DA00F85B15 /* Info.plist */,
 				C916264021E323D900F85B15 /* AppDelegate.swift */,
-				C9A0A63121E5EF1D00B4C694 /* CommonFunction.swift */,
 				C9764CDE21ED82CD004D1B34 /* PhotoLibraryManager.swift */,
 				C9F4ECBC21F0638100A37467 /* NumberManager.swift */,
 				C9E8DD1821F1624B0041966A /* ProtocolExtension.swift */,
+				C9B0D14E21F800CB003CCDBE /* R.generated.swift */,
 				C9F4ECBA21F037EF00A37467 /* Setting.strings */,
 				C9A0A63021E5E99B00B4C694 /* ViewController */,
 			);
@@ -154,9 +154,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C916264F21E323DA00F85B15 /* Build configuration list for PBXNativeTarget "CRUD" */;
 			buildPhases = (
-				C9C1BC5021EF292200188310 /* Rswift */,
 				F67EF2BEB6220489318FFBC3 /* [CP] Check Pods Manifest.lock */,
-				C982E74D21E880200075F4EF /* ShellScript */,
+				C9C1BC5021EF292200188310 /* Rswift */,
 				C916263921E323D900F85B15 /* Sources */,
 				C916263A21E323D900F85B15 /* Frameworks */,
 				C916263B21E323D900F85B15 /* Resources */,
@@ -330,7 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C954C83F21E8587E0040724A /* EditViewController.swift in Sources */,
-				C9C1BC5221EF2ABD00188310 /* R.generated.swift in Sources */,
+				C9B0D14F21F800CB003CCDBE /* R.generated.swift in Sources */,
 				C9764CDF21ED82CD004D1B34 /* PhotoLibraryManager.swift in Sources */,
 				C9A0A62F21E5E97E00B4C694 /* SignupViewController.swift in Sources */,
 				C974A77221E5C0BE00CC2549 /* LoginViewController.swift in Sources */,

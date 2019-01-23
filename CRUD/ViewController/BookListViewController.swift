@@ -3,7 +3,7 @@ import APIKit
 
 class BookListViewController: UIViewController {
     
-    struct BookInfo {
+    struct Book {
         let bookImage: UIImage?
         let bookTitle: UILabel?
         let bookPrice: UILabel?
@@ -24,7 +24,7 @@ class BookListViewController: UIViewController {
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.rowHeight = NumberManager.tableViewRowHeight
+        tableView.rowHeight = NumberManager.Size.tableViewRowHeight
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(BookListCell.self, forCellReuseIdentifier: NSStringFromClass(BookListCell.self))
@@ -43,7 +43,7 @@ class BookListViewController: UIViewController {
         let button = UIButton()
         button.setTitle(R.string.setting.load(), for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: NumberManager.fontSizeSmall)
+        button.titleLabel?.font = .systemFont(ofSize: NumberManager.Size.fontSizeSmall)
         button.backgroundColor = .blue
         button.layer.cornerRadius = NumberManager.buttonCornerRadiusToCircle
         button.addTarget(self, action: #selector(moreLoad(sender:)), for: .touchUpInside)
@@ -52,18 +52,18 @@ class BookListViewController: UIViewController {
     }()
     
     private lazy var saveButton: UIBarButtonItem = {
-        let saveButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(bookModify))
+        let saveButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(bookEdit))
         return saveButton
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        setupNavItem()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        setupNavItem()
         setupUI()
     }
 }
@@ -73,14 +73,15 @@ extension BookListViewController {
         view.addSubview(safeView)
         view.addSubview(navBar)
         view.addSubview(tableView)
-        tableView.topAnchor.constraint(equalTo: navBar.bottomAnchor, constant: NumberManager.tableViewTopConstraint).isActive = true
+        tableView.topAnchor.constraint(equalTo: navBar.bottomAnchor, constant: NumberManager.Constraint.tableViewTopConstraint).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: MainTabBarController().tabBar.frame.size.height)
         tableView.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
-        tableView.heightAnchor.constraint(equalToConstant: view.frame.height - view.safeAreaInsets.bottom).isActive = true
+        tableView.heightAnchor.constraint(equalToConstant: view.frame.size.height - view.safeAreaInsets.top).isActive = true
         view.addSubview(loadButton)
-        loadButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: NumberManager.loadButtonRightConstraint).isActive = true
-        loadButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: NumberManager.loadButtonBottomConstraint).isActive = true
-        loadButton.widthAnchor.constraint(equalToConstant: NumberManager.loadButtonWidthConstraint).isActive = true
-        loadButton.heightAnchor.constraint(equalToConstant: NumberManager.loadButtonHeightConstraint).isActive = true
+        loadButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: NumberManager.Constraint.loadButtonRightConstraint).isActive = true
+        loadButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: NumberManager.Constraint.loadButtonBottomConstraint).isActive = true
+        loadButton.widthAnchor.constraint(equalToConstant: NumberManager.Constraint.loadButtonWidthConstraint).isActive = true
+        loadButton.heightAnchor.constraint(equalToConstant: NumberManager.Constraint.loadButtonHeightConstraint).isActive = true
     }
     
     func setupNavItem() {
@@ -90,7 +91,7 @@ extension BookListViewController {
     
     @objc private func bookAdd() {
         let bookAddViewController = BookAddViewController()
-        self.present(bookAddViewController, animated: true)
+        present(bookAddViewController, animated: true)
     }
     
     @objc private func moreLoad(sender: UIButton) {
@@ -99,7 +100,7 @@ extension BookListViewController {
     }
     
     //EditViewControllerで発動する
-    @objc private func bookModify() {
+    @objc private func bookEdit() {
         print("Modify!!")
         //書籍編集情報保存
     }
@@ -111,11 +112,8 @@ extension BookListViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell: BookListCell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(BookListCell.self), for: indexPath) as? BookListCell {
-            cell.commonInit(name: "書籍一覧", image: "home", price: "200.000円", purchaseDate: "2018/12/31", editButton: R.string.setting.editButton())
-            return cell
-        }
-        let cell = UITableViewCell()
+        guard let cell: BookListCell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(BookListCell.self), for: indexPath) as? BookListCell else { return UITableViewCell() }
+        cell.commonInit(name: "書籍一覧", image: "home", price: "200.000円", purchaseDate: "2018/12/31", editButton: R.string.setting.editButton())
         return cell
     }
     

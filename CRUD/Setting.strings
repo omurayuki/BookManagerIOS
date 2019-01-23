@@ -21,3 +21,6 @@
 "purchaseDay" = "購入日";
 "editButton" = ">";
 "modify" = "書籍編集";
+"canAccessToCamera" = "写真へのアクセスを許可";
+"pleaseChangeSettings" = "写真へのアクセスを許可する必要があります。設定を変更してください。";
+"changeSettings" = "設定変更";

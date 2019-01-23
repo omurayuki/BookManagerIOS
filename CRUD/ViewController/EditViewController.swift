@@ -10,7 +10,6 @@ class EditViewController: UIViewController {
     @IBOutlet weak var bookNameTextField: UITextField!
     @IBOutlet weak var bookMoneyTextField: UITextField!
     @IBOutlet weak var purchaseDayTextField: UITextField!
-    private let todayDate = Date()
     private let dateFormat = DateFormatter()
     private let inputDatePicker = UIDatePicker()
     private var photoLibraryManager: PhotoLibraryManager!
@@ -31,16 +30,17 @@ class EditViewController: UIViewController {
 extension EditViewController {
     private func setupUI() {
         bookImage.layer.borderColor = UIColor.gray.cgColor
-        bookImage.layer.borderWidth = NumberManager.editBorderWidth
+        bookImage.layer.borderWidth = NumberManager.Size.editBorderWidth
     }
     
     private func selectPicker() {
+        let todayDate = Date()
         dateFormat.dateFormat = R.string.setting.format()
         purchaseDayTextField.text = dateFormat.string(from: todayDate as Date)
         inputDatePicker.datePickerMode = .date
         purchaseDayTextField.inputView = inputDatePicker
-        let pickerToolBar = UIToolbar(frame: CGRect(x: 0, y: self.view.frame.size.height / NumberManager.pickerToolBarDivide, width: self.view.frame.size.width, height: NumberManager.pickerToolBarHeight))
-        pickerToolBar.layer.position = CGPoint(x: self.view.frame.size.width / NumberManager.pickerToolBarLayerDivide, y: self.view.frame.size.height - NumberManager.pickerToolBarLayerWidth)
+        let pickerToolBar = UIToolbar(frame: CGRect(x: 0, y: view.frame.size.height / NumberManager.Calc.pickerToolBarDivide, width: view.frame.size.width, height: NumberManager.Size.pickerToolBarHeight))
+        pickerToolBar.layer.position = CGPoint(x: view.frame.size.width / NumberManager.Calc.pickerToolBarLayerDivide, y: view.frame.size.height - NumberManager.Size.pickerToolBarLayerWidth)
         pickerToolBar.barStyle = .default
         pickerToolBar.tintColor = UIColor.gray
         pickerToolBar.backgroundColor = UIColor.white
@@ -54,7 +54,7 @@ extension EditViewController {
     @objc private func toolBarBtnPush(_ sender: UIBarButtonItem) {
         let pickerDate = inputDatePicker.date
         purchaseDayTextField.text = dateFormat.string(from: pickerDate as Date)
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
 }
 
@@ -66,20 +66,19 @@ extension EditViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
+        view.endEditing(true)
         return true
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
 }
 
 extension EditViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        if let pickedImage = info[.originalImage] as? UIImage {
-            bookImage.image = pickedImage
-        }
+        guard let pickedImage = info[.originalImage] as? UIImage else { return }
+        bookImage.image = pickedImage
         picker.dismiss(animated: true)
     }
 }

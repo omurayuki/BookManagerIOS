@@ -2,7 +2,7 @@ import Foundation
 import Photos
 
 struct PhotoLibraryManager {
-    var parentViewController: UIViewController?
+    let parentViewController: UIViewController?
     
     init(parentViewController: UIViewController) {
         self.parentViewController = parentViewController
@@ -10,36 +10,39 @@ struct PhotoLibraryManager {
     
     func requestAuthorizationOn() {
         let status = PHPhotoLibrary.authorizationStatus()
-        if status == PHAuthorizationStatus.denied {
-            let alert = UIAlertController(title: "写真へのアクセスを許可", message: "写真へのアクセスを許可する必要があります。設定を変更してください。", preferredStyle: .alert)
-            let settingsAction = UIAlertAction(title: "設定変更", style: .default) { (_) in
+        switch status {
+        case .denied:
+            let alert = UIAlertController(title: R.string.setting.canAccessToCamera(), message: R.string.setting.pleaseChangeSettings(), preferredStyle: .alert)
+            let settingsAction = UIAlertAction(title: R.string.setting.changeSettings(), style: .default) { (_) in
                 guard let _ = URL(string: UIApplication.openSettingsURLString) else {
                     return
                 }
             }
             alert.addAction(settingsAction)
-            alert.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: { (_) in
+            alert.addAction(UIAlertAction(title: R.string.setting.cancel(), style: .cancel, handler: { (_) in
                 return
             }))
-            self.parentViewController?.present(alert, animated: true)
+            parentViewController?.present(alert, animated: true)
+        case .notDetermined:
+            print("notDetermined")
+        case .restricted:
+            print("restricted")
+        case .authorized:
+            print("authorized")
         }
     }
     
     func callPhotoLibrary() {
         requestAuthorizationOn()
-        
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary) {
+        guard  UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary) else { return }
             let picker = UIImagePickerController()
             picker.modalPresentationStyle = UIModalPresentationStyle.popover
-            picker.delegate = self.parentViewController as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
+            picker.delegate = parentViewController as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
             picker.sourceType = UIImagePickerController.SourceType.photoLibrary
-            
-            if let popover = picker.popoverPresentationController {
-                popover.sourceView = self.parentViewController?.view
-                popover.sourceRect = (self.parentViewController?.view.frame)!
-                popover.permittedArrowDirections = UIPopoverArrowDirection.any
-            }
-            self.parentViewController?.present(picker, animated: true)
-        }
+        guard let popover = picker.popoverPresentationController else { return }
+            popover.sourceView = parentViewController?.view
+            popover.sourceRect = (parentViewController?.view.frame)!
+            popover.permittedArrowDirections = UIPopoverArrowDirection.any
+            parentViewController?.present(picker, animated: true)
     }
 }
