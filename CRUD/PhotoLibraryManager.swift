@@ -2,7 +2,7 @@ import Foundation
 import Photos
 
 struct PhotoLibraryManager {
-    let parentViewController: UIViewController?
+    weak var parentViewController: UIViewController?
     
     init(parentViewController: UIViewController) {
         self.parentViewController = parentViewController

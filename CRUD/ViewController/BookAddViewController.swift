@@ -3,7 +3,6 @@ import UIKit
 
 class BookAddViewController: UIViewController {
     
-    private let todayDate = Date()
     private let dateFormat = DateFormatter()
     private let inputDatePicker = UIDatePicker()
     private var photoLibraryManager: PhotoLibraryManager!
@@ -213,6 +212,7 @@ extension BookAddViewController {
     }
     
     private func selectPicker() {
+        let todayDate = Date()
         dateFormat.dateFormat = R.string.setting.format()
         purchaseDayTextField.text = dateFormat.string(from: todayDate as Date)
         inputDatePicker.datePickerMode = .date

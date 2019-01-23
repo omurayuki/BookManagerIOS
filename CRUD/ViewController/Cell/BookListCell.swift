@@ -20,11 +20,11 @@ class BookListCell: UITableViewCell {
         return title
     }()
     
-    private lazy var price: UILabel = {
-        let price = UILabel()
-        price.font = .systemFont(ofSize: NumberManager.Size.fontSizeSmall)
-        price.translatesAutoresizingMaskIntoConstraints = false
-        return price
+    private lazy var priceLabel: UILabel = {
+        let priceLabel = UILabel()
+        priceLabel.font = .systemFont(ofSize: NumberManager.Size.fontSizeSmall)
+        priceLabel.translatesAutoresizingMaskIntoConstraints = false
+        return priceLabel
     }()
     
     private lazy var bookDay: UILabel = {
@@ -64,13 +64,13 @@ extension BookListCell {
         title.topAnchor.constraint(equalTo: contentView.topAnchor, constant: NumberManager.Constraint.titleTopConstraint).isActive = true
         title.leftAnchor.constraint(equalTo: bookimage.rightAnchor, constant: NumberManager.Constraint.titleLeftConstraint).isActive = true
         
-        contentView.addSubview(price)
-        price.topAnchor.constraint(equalTo: title.bottomAnchor, constant: NumberManager.Constraint.priceTopConstraint).isActive = true
-        price.leftAnchor.constraint(equalTo: bookimage.rightAnchor, constant: NumberManager.Constraint.priceLeftConstraint).isActive = true
+        contentView.addSubview(priceLabel)
+        priceLabel.topAnchor.constraint(equalTo: title.bottomAnchor, constant: NumberManager.Constraint.priceTopConstraint).isActive = true
+        priceLabel.leftAnchor.constraint(equalTo: bookimage.rightAnchor, constant: NumberManager.Constraint.priceLeftConstraint).isActive = true
         
         contentView.addSubview(bookDay)
         bookDay.topAnchor.constraint(equalTo: contentView.topAnchor, constant: NumberManager.Constraint.bookDayTopConstraint).isActive = true
-        bookDay.leftAnchor.constraint(equalTo: price.rightAnchor, constant: NumberManager.Constraint.bookDayLeftConstraint).isActive = true
+        bookDay.leftAnchor.constraint(equalTo: priceLabel.rightAnchor, constant: NumberManager.Constraint.bookDayLeftConstraint).isActive = true
         
         contentView.addSubview(editButton)
         editButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: NumberManager.Constraint.editButtonTopConstrain).isActive = true
@@ -80,7 +80,7 @@ extension BookListCell {
     func commonInit(name: String, image: String, price: String, purchaseDate: String, editButton: String) {
         self.title.text = name
         self.bookimage.kf.setImage(with: URL(string: image))
-        self.price.text = price
+        self.priceLabel.text = price
         self.bookDay.text = purchaseDate
         self.editButton.setTitle(editButton, for: .normal)
     }
