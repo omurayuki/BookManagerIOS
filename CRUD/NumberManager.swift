@@ -37,6 +37,7 @@ struct NumberManager {
         static let bookDayLeftConstraint: CGFloat = 40
         static let editButtonTopConstrain: CGFloat = 35
         static let editButtonRightConstraint: CGFloat = -10
+        static let tableViewForCalc: CGFloat = 44
     }
     
     struct Flag {

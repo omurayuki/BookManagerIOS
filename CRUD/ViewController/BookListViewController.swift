@@ -60,11 +60,11 @@ class BookListViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupNavItem()
+        setupUI()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        setupUI()
     }
 }
 
@@ -76,7 +76,7 @@ extension BookListViewController {
         tableView.topAnchor.constraint(equalTo: navBar.bottomAnchor, constant: NumberManager.Constraint.tableViewTopConstraint).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: MainTabBarController().tabBar.frame.size.height)
         tableView.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
-        tableView.heightAnchor.constraint(equalToConstant: view.frame.size.height - view.safeAreaInsets.top).isActive = true
+        tableView.heightAnchor.constraint(equalToConstant: view.frame.size.height - NumberManager.Constraint.tableViewForCalc).isActive = true
         view.addSubview(loadButton)
         loadButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: NumberManager.Constraint.loadButtonRightConstraint).isActive = true
         loadButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: NumberManager.Constraint.loadButtonBottomConstraint).isActive = true
