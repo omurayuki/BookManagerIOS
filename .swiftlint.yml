@@ -3,6 +3,22 @@ disabled_rules:
 - trailing_whitespace # 余分に改行がある方が視認性が上がる為、無効
 - type_name # クラス名は長くして情報を詰めておく必要もある為、無効
 
+- empty_enum_arguments # enumの引数を省略したいため
+
+# opt-inルールの中で無効にするルール
+- conditional_returns_on_newline # ガード文などは簡潔に一行で記述したいため
+- discouraged_optional_collection # PHImageManagerの既存仕様のため
+- explicit_enum_raw_value # 暗黙的なraw値で問題ないため
+- explicit_type_interface # 型推論を利用したいため
+- fatal_error_message # メッセージは不要なため
+- file_header # ヘッダには特に決まりがないため
+- lower_acl_than_parent # 対応不可のため
+- no_extension_access_modifier # extension_access_modifierを優先するため
+- no_grouping_extension # グルーピングにextensionを利用したいため
+- strict_fileprivate # fileprivateを利用したいため
+- switch_case_on_newline # caseと同じ行に記述したいため
+
+
 # ルール一覧を表示
 #- colon
 #- control_statement
@@ -26,6 +42,7 @@ line_length: 300
 
 excluded: # Lint対象から外すファイルのあるパスを記述
 - Pods
+- Carthage
 
 # クラスの行数
 type_body_length:
